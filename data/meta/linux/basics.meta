@@ -1,0 +1,5 @@
+a:2:{s:7:"current";a:7:{s:4:"date";a:2:{s:7:"created";i:1488295813;s:8:"modified";i:1488294172;}s:4:"user";s:0:"";s:7:"creator";s:0:"";s:5:"title";s:8:"CPU Load";s:11:"description";a:2:{s:15:"tableofcontents";a:3:{i:0;a:4:{s:3:"hid";s:8:"cpu_load";s:5:"title";s:8:"CPU Load";s:4:"type";s:2:"ul";s:5:"level";i:3;}i:1;a:4:{s:3:"hid";s:11:"time_stamps";s:5:"title";s:11:"Time Stamps";s:4:"type";s:2:"ul";s:5:"level";i:3;}i:2;a:4:{s:3:"hid";s:7:"heredoc";s:5:"title";s:7:"Heredoc";s:4:"type";s:2:"ul";s:5:"level";i:3;}}s:8:"abstract";s:297:"CPU Load
+
+Number of processes that are currently running plus the number that are waiting. 
+
+On multi-processor system, the load is relative to the number of processor cores available. The “100% utilization” mark is 1.00 on a single-core system, 2.00, on a dual-core, 4.00 on a quad-core, etc.";}s:8:"internal";a:2:{s:5:"cache";b:1;s:3:"toc";b:1;}s:8:"relation";a:1:{s:10:"firstimage";s:0:"";}}s:10:"persistent";a:3:{s:4:"date";a:1:{s:7:"created";i:1488295813;}s:4:"user";s:0:"";s:7:"creator";s:0:"";}}
