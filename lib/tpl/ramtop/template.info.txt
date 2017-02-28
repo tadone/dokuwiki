@@ -1,0 +1,8 @@
+base     ramtop
+author   Stefan Rothe
+email    info@stefan-rothe.ch
+date     2015-05-25
+name     DokuWiki Ramtop Template
+desc     A very simple website template
+url      https://www.dokuwiki.org/template:ramtop
+

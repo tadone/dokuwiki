@@ -1,0 +1,151 @@
+/*____________ page tools ____________*/
+
+/* Show page tools only when logged in */
+
+#dokuwiki__pagetools {
+    visibility: hidden;
+}
+
+.loggedIn #dokuwiki__pagetools {
+    visibility: visible;
+}
+
+/*____________ links ____________*/
+
+/* Remove icon from external URLs. */
+.dokuwiki a.urlextern {
+    background: none;
+    padding: 0;
+}
+
+/* Don't display link to current page in bold */
+
+.dokuwiki span.curid a {
+    font-weight: normal;
+}
+
+/*____________ header ____________*/
+
+header {
+    position: relative;
+    width: 100%;
+    height: 80px;
+    padding: 0;
+    padding-top: 1cm;
+    margin: 0;
+    margin-bottom: 0.5em;
+    border-bottom: 1px solid #606060;
+}
+
+header h1 {
+    font-family: 'Droid Sans','Liberation Sans',Arial,Helvetica,sans-serif;
+    font-size: 40px;
+    width: 100%;
+    bottom: 0;
+    padding: 0;
+    margin: 0 !important;
+}
+
+header h1 a:link,
+header h1 a:link:hover,
+header h1 a:link:focus,
+header h1 a:link:active,
+header h1 a:visited,
+header h1 a:visited:hover,
+header h1 a:visited:focus,
+header h1 a:visited:active {
+    text-decoration: none;
+    color: __text__;
+}
+
+header p.claim {
+    font-family: 'Droid Sans','Liberation Sans',Arial,Helvetica,sans-serif;
+    font-size: 18px;
+    vertical-align: top;
+}
+
+header #logo {
+    float: right;
+}
+
+nav.menubar {
+    right: 0;
+    font-family: 'Droid Sans','Liberation Sans',Arial,Helvetica,sans-serif;
+    font-size: 18px;
+    margin-bottom: -20px;
+    width: 100%;
+    text-align: right;
+}
+
+nav.menubar a.wikilink1 {
+    color: __text__ !important;
+    text-decoration: none;
+}
+
+nav.menubar a.wikilink1:link:hover,
+nav.menubar a.wikilink1:visited:hover {
+    text-decoration: underline;
+}
+
+/*____________ content ____________*/
+
+.dokuwiki div.page {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    min-height: 0;
+}
+
+table,
+th,
+td {
+    border-width: 0;
+    border-style: none;
+}
+
+.dokuwiki div.table {
+    overflow-x: visible;
+}
+
+.dokuwiki pre.code,
+.dokuwiki pre.file {
+    background-color: #DFD;
+}
+
+#dw__toc {
+    float: right;
+    width: 200px;
+    margin-top: 1em;
+    background: transparent;
+    border: solid;
+    border-width: 1px;
+}
+
+/*____________ footer ____________*/
+
+footer {
+    border-top: 1px solid #606060;
+    padding-top: 1em;
+    font-size: 0.714em; /* 10px (base: 14px) */
+    width: 100%;
+    text-align: center;
+}
+
+footer nav.footer_actions_left {
+    float: left;
+    margin-right: 1.5em;
+}
+
+footer nav.footer_actions_right {
+    float: right;
+}
+
+footer div.licence {
+    margin-top: 2em;
+    margin-bottom: 1em;
+}
+
+footer div.buttons a img {
+    opacity: 0.5;
+}
+

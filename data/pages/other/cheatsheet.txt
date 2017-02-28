@@ -11,7 +11,7 @@
 ^ Command        ^ Function       ^ Command          ^ Function          ^ 
 | ''docker ps''   | Lists running containers     | docker ps -a    | Lists all containers, including stopped|
 | ''docker volume ls''  | Lists all volumes | docker rmi //<volume/ID>// | Remove Image by volume name or volume ID |
-| Ctrl-a ''-''    | Split Horizontally | Ctrl-a ''|''    | Split Vertically |
-|  docker volume ls -qf dangling=true  | List dangling volumes       | Ctrl-a ''Spacebar'' | Select text in copy mode |
+| ''docker exec -it <ID> bash'' | Connect to container and run Bash shell | Ctrl-a ''|''    | Split Vertically |
+| ''docker volume ls -qf dangling=true''  | List dangling volumes       | Ctrl-a ''Spacebar'' | Select text in copy mode |
 | Ctrl-a '']'' | Paste selected text || 
 |Tmux kill-session -t ''session_ID'' | Kill Tmux session by session ID||

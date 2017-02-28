@@ -20,7 +20,7 @@ command man “$@”
 
 
 # TMUX - Try to attach to existing deattached session or start a new session:
-<code bash>
+<sxh bash>
 if [[ -z "$TMUX" ]] ;then
     ID="`tmux ls | grep -vm1 attached | cut -d: -f1`" # get the id of a deattached session
     if [[ -z "$ID" ]] ;then # if not available create a new one
@@ -28,7 +28,7 @@ if [[ -z "$TMUX" ]] ;then
     else
         tmux attach-session -t "$ID" # if available attach to it
     fi
-fi</code>
+fi</sxh>
 [[https://wiki.archlinux.org/index.php/Tmux#Start_tmux_on_every_shell_login|Tmux Start on every shell login]]
 
 ===~/.zshrc===

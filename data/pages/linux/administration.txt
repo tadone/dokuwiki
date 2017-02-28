@@ -2,13 +2,13 @@
 Find installed package:
 <code bash>rpm -qa | grep <package_name> # Query all installed packages and grep by package name</code>
 Start and stop services and configure services to start automatically at boot
-<code bash>systemctl start/stop/enable/status httpd # Start, Stop, Enable, and Status of Service
-systemctl is-active/is-enabled httpd</code>
+<sxh bash>systemctl start/stop/enable/status httpd # Start, Stop, Enable, and Status of Service
+systemctl is-active/is-enabled httpd</sxh>
 SystemCTL to manage services:
-<code bash>
+<sxh bash>
 systemctl list-units -t service --state=active # Lists all services that are active
 systemctl list-unit-files -t service --state=enabled # Lists all services that are enabled
-</code>
+</sxh>
 
 ===Managing Services===
 A **service** can be several processes, e.g., httpd (web-service) or a database. Splitting a service into multiple processes is done for performance reasons.
