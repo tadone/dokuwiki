@@ -1,0 +1,15 @@
+===== Manually wipe a drive and convert it to GPT: =====
+  * From inside Windows Setup, press Shift+F10 to open a command prompt window.
+  * Open the diskpart tool:
+''diskpart''
+  * Identify the drive to reformat:
+''list disk''
+  * Select the drive, and reformat it:
+''select disk <disk number>\\
+clean\\
+convert gpt\\
+exit''
+  * Close the command prompt window.
+  * Continue the Windows Setup installation.
+  * When choosing an installation type, select Custom. The drive will appear as a single area of unallocated space.
+  * Select the unallocated space and click Next. Windows begins the installation.

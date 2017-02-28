@@ -1,0 +1,80 @@
+==== Find ====
+Find regular file (f) in current directory (.) and print to STDOUT on same line (no new line)
+<code bash>find . -type f -print0</code>
+<code>
+-print0
+       True;  print  the  full file name on the standard output, followed by a null character (instead of
+       the newline character that -print uses).  This allows file names that contain  newlines  or  other
+       types  of  white space to be correctly interpreted by programs that process the find output.  This
+       option corresponds to the -0 option of xargs.
+</code>
+[[linux:find|Advanced Find]] - Advanced usage of ''find'' command
+==== Tar - Tape Archive====
+Examples:
+<code bash>
+  tar -cf archive.tar foo bar  # Create archive.tar from files foo and bar.
+  tar -czvf archive.tar.gz     # Create Gzipped archive.tar
+  tar -tvf archive.tar         # List all files in archive.tar verbosely.
+  tar -xf archive.tar          # Extract all files from archive.tar.
+  tar -czvf files.tar.gz -C /vaw/www/html . # Change to /var/www/html directory and tar all files (using . "dot") 
+  tar -czvf site1.tar.gz -C /var/www/ site1 
+  # Note the space, I'm still using the -C, to cd to the parent dir, and specifying the dir to tar instead of dot 
+</code>
+==== Rsync - a fast, versatile, remote (and local) file-copying tool====
+<code>rsync --archive --delete /path/to/source /path/to/destination
+
+-a, --archive
+       This is equivalent to -rlptgoD. It is a quick way  of  saying  you  want  recursion  and  want  to
+       preserve  almost  everything  (with -H being a notable omission).  The only exception to the above
+       equivalence is when --files-from is specified, in which case -r is not implied.
+
+       Note that -a does not preserve hardlinks, because finding multiply-linked files is expensive.  You
+       must separately specify -H.
+</code>
+
+====Edit file with SED==== 
+[[linux:sed|Sed]]
+is stream editor, but can edit files directly too, with the following:
+
+<code>sed -i -e 's|foo|bar|g' filename</code>
+
+**s** is used to replace the found expression "foo" with "bar"
+
+**g** stands for "global", meaning to do this for the whole line. If you leave off the g and "foo" appears twice on the same line, only the first "foo" is changed to "bar".
+
+**-i** option is used to edit in place on filename.
+
+**-e** option indicates a command to run.
+
+==== Nmap ====
+[[linux:nmap|Nmap]]
+==== xargs ====
+''xargs'' is a command used to execute commands based on arguments from standard input.
+xargs used in combination with find in order to do something with the list of files returned by find.
+Recursively find all Python files and count the number of lines
+<code>find . -name '*.py' | xargs wc -l</code>
+
+Recursively find all Emacs backup files and remove them
+<code>find . -name '*~' | xargs rm</code>
+
+Recursively find all Python files and search them for the word ‘import’
+<code>find . -name '*.py' | xargs grep 'import'</code>
+
+===Handling files or folders with spaces in the name===
+One problem with the above examples is that it does not correctly handle files or directories with a space in the name. This is because xargs by default will split on any white-space character. 
+A quick solution to this is to tell find to delimit results with NUL (\0) characters (by supplying ''-print0'' to find), and to tell xargs to split the input on NUL characters as well (''-0'').
+
+Remove backup files recursively even if they contain spaces
+<code>find . -name '*~' -print0 | xargs -0 rm</code>
+
+Security note: filenames can often contain more than just spaces.
+
+===Placement of the arguments===
+In the examples above xargs reads all non-white-space elements from standard input and concatenates them into the given command line before executing it. This alone is very useful in many circumstances. 
+Sometimes however you might want to insert the arguments into the middle of a command. The ''-I'' flag to xargs takes a string that will be replaced with the supplied input before the command is executed. 
+A common choice is {}.
+
+Move all backup files somewhere else
+<code>find . -name '*~' -print 0 | xargs -0 -I {} cp {} ~/backups</code>
+
+[[linux:xargs|Advanced XARGS Usage]]

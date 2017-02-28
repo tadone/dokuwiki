@@ -1,0 +1,38 @@
+The following table lists the most frequently used bash comparison operators. You'll also find an example of how to use every option correctly. The example is meant to be placed immediately after the "if". For example:
+<sxh bash>if [ -z "$myvar" ]
+then
+        echo "myvar is not defined"
+fi</sxh>
+
+Note: You must separate the square brackets from other text by a space.
+
+**Common Bash comparisons:**
+|**Operator**	|**Meaning**	|**Example**|
+|-z	|Zero-length string	|[ -z "$myvar" ]|
+|-n	|Non-zero-length string	|[ -n "$myvar" ]|
+|=	|String equality	|[ "abc" = "$myvar" ]|
+|!=	|String inequality	|[ "abc" != "$myvar" ]|
+|-eq	|Numeric equality	|[ 3 -eq "$myinteger" ]|
+|-ne	|Numeric inequality	|[ 3 -ne "$myinteger" ]|
+|-lt	|Numeric strict less than	|[ 3 -lt "$myinteger" ]|
+|-le	|Numeric less than or equals	|[ 3 -le "$myinteger" ]|
+|-gt	|Numeric strict greater than	|[ 3 -gt "$myinteger" ]|
+|-ge	|Numeric greater than or equals	|[ 3 -ge "$myinteger" ]|
+|-f	|Exists and is regular file	|[ -f "$myfile" ]|
+|-d	|Exists and is directory	|[ -d "$mydir" ]|
+|-nt	|First file is newer than second one	|[ "$myfile" -nt ~/.bashrc ]|
+|-ot	|First file is older than second one	|[ "$myfile" -ot ~/.bashrc ]|
+
+Sometimes, there are several different ways that a particular comparison can be made. For example, the following two snippets of code function identically:
+<sxh bash>if [ "$myvar" -eq 3 ]
+then 
+    echo "myvar equals 3"
+fi</sxh>
+
+<sxh bash>
+if [ "$myvar" = "3" ]
+then
+    echo "myvar equals 3"
+fi</sxh>
+
+If **$myvar** is an integer, these two comparisons do exactly the same thing, but the first uses arithmetic comparison operators, while the second uses string comparison operators. If **$myvar** is not an integer, then the first comparison will fail with an error.

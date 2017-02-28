@@ -1,0 +1,51 @@
+==== New Linux Server Checklist ====
+1. Copy SSH keys to server\\
+<sxh>ssh-copy-id -i ~/.ssh/id_rsa.pub remote-host</sxh>
+2. Change ''/etc/ssh/sshd_config'' settings to prevent root access over ssh.
+3. Rest 
+
+==== Initial Setup ====
+
+Run the Setup.sh script: '' Setup.sh username passwrod'' This will:
+  * Update & Upgrade the system
+  * Create new user and password
+  * Install following programs: Vim, Git, Zsh, Logwatch, Htop, UFW, Fail2Ban
+  * Setup Prezto (for Zsh)
+  * Setup dotfiles
+  * Enable firewall rules
+
+
+Once the script has finished edit configs:
+  * Setup mail [[linux:mail|Installing send-only mail client "Exim4"]]
+  * Change Fail2Ban rules ''/etc/fail2ban/jail.local'' (SSH, Nginx)
+  * Change Logwatch config ''/usr/share/logwatch/default.conf/logwatch.conf''
+
+===Logwatch===
+To customize the configuration, you’ll want to edit the config file found in the slightly out-of-the-way location of
+
+''/usr/share/logwatch/default.conf/logwatch.conf''
+
+In here you’ll want to change the email address from root to your own email address.  Logwatch can send your email as text or HTML – select whichever you prefer.
+
+''Output = mail #change from stdout\\
+Format = text\\
+MailTo = you@example.com\\
+''
+There’s a detail level you can set as well – by default it’s set to the lowest level (0), which itself sends a fair amount of info.  If you find that you want to receive more, increase it as needed, up to 10.  It also supports text values of Low, Medium and High, which translate to 0, 5, and 10:
+
+''Detail = Low''
+
+Finally, schedule it by adding it to crontab – in this example, we schedule it to run at midnight by running **crontab -e** and adding the line:
+
+''0 0 * * * /usr/sbin/logwatch''
+
+To check number of banned IPs
+
+''sudo fail2ban-client status ssh''
+
+[[https://www.digitalocean.com/community/tutorials/how-to-install-and-use-logwatch-log-analyzer-and-reporter-on-a-vps| Logwatch Tutorial]]
+
+====Extra Packages====
+**bmon** -- TUI Bandwidth monitoring [[https://github.com/tgraf/bmon|Bmon Github]]\\
+**Glances** -- System monitoring tool, similar to Htop [[https://nicolargo.github.io/glances/|Glances]]
+**colordiff** -- Diff tool

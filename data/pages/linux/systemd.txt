@@ -1,0 +1,39 @@
+====== SystemD ======
+
+
+==== Troubleshooting ====
+
+Troubleshooting **SSHD** Service
+
+Check output of 
+<code>systemctl status sshd.service</code>
+
+Check journal messages from boot-up:
+<code>journalctl -b | grep sshd</code>
+
+Check unit file: ''/etc/systemd/system/sshd.service''
+
+View system messages:
+''systemctl'' after issuing 
+<code>systemctl start sshd.service</code>
+
+==== Extended Configuration ====
+**Automatic Restart**
+<code>[Service]
+Restart=always</code>
+The **“Restart=”** directive tells systemd to restart the service if the process terminates. 
+You can set it to “always”, or read the manual page to see if the other values make sense for you.
+
+**Improved Documentation**
+<code bash>
+# mkdir /etc/systemd/system/mystery.service.d
+# cat > /etc/systemd/system/mystery.service.d/documentation.conf
+[Unit]
+Documentation=https://wiki.corp.example.org/SomeClient/CommonFailures \
+  https://www.enterpricy.example.org/Documentation/ \
+  man:mysteryd(8) \
+  file:///opt/mystery/doc/index.html
+^D</code>
+
+The content of the “Documentation=” directive is visible when running “systemctl status servicename”. This helps your on-call person, when the alarm goes off, to figure out what is wrong, and how to fix it. 
+Add your own service documentation, and a link to the upstream documentation.

@@ -1,0 +1,54 @@
+===~/.bashrc===
+
+Change default editor to vim:\\
+''export VISUAL=vim \\
+export EDITOR="$VISUAL"''
+
+**Colorized Man Pages**
+Add this to .bashrc (or .bash_profile) to have colorized man pages:
+
+<sxh bash>man () {
+LESS_TERMCAP_mb=$’\e'”[1;31m” \
+LESS_TERMCAP_md=$’\e'”[1;31m” \
+LESS_TERMCAP_me=$’\e'”[0m” \
+LESS_TERMCAP_se=$’\e'”[0m” \
+LESS_TERMCAP_so=$’\e'”[1;44;33m” \
+LESS_TERMCAP_ue=$’\e'”[0m” \
+LESS_TERMCAP_us=$’\e'”[1;32m” \
+command man “$@”
+}</sxh>
+
+
+# TMUX - Try to attach to existing deattached session or start a new session:
+<code bash>
+if [[ -z "$TMUX" ]] ;then
+    ID="`tmux ls | grep -vm1 attached | cut -d: -f1`" # get the id of a deattached session
+    if [[ -z "$ID" ]] ;then # if not available create a new one
+        tmux new-session
+    else
+        tmux attach-session -t "$ID" # if available attach to it
+    fi
+fi</code>
+[[https://wiki.archlinux.org/index.php/Tmux#Start_tmux_on_every_shell_login|Tmux Start on every shell login]]
+
+===~/.zshrc===
+
+Source Prezto:\\
+<code bash># Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi</code>
+
+===~/.zpreztorc===
+<code bash>
+# Set the Prezto modules to load (browse modules).
+# The order matters.
+zstyle ':prezto:load' pmodule \
+  'directory' \
+  'utility' \
+  'completion' \
+  'git' \
+  'prompt' \
+  'syntax-highlighting' \
+  'history-substring-search' \
+</code>

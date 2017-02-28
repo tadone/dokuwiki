@@ -1,0 +1,95 @@
+=====Special Parameters=====
+|@|	at-sign	|The positional parameters starting from the first. When used inside doublequotes (see quoting), like "$@", it expands all positional parameters as separate words: "$1" "$2" "$3" "$4" |
+
+|?|	question mark	|Status of the most recently executed foreground-pipeline **(exit/return code)**|
+
+===Test Operators===
+<code bash>
+if [[ XXX != "Value" ]], then
+
+  else
+ 
+fi
+</code>
+''XXX'' could be a value, or parameter or file test operator.
+
+File tests
+This section probably holds the most tests, I'll list them in some logical order. Since Bash 4.1, all tests related to permissions respect ACLs, if the underlying filesystem/OS supports them.
+
+|Operator syntax|	Description|	
+|-a <FILE>	|True if <FILE> exists. :!: (not recommended, may collide with -a for AND, see below)|	
+|-e <FILE>	|True if <FILE> exists.|	
+|-f <FILE>	|True, if <FILE> exists and is a regular file.|	
+|-d <FILE>	|True, if <FILE> exists and is a directory.|
+|-c <FILE>	|True, if <FILE> exists and is a character special file.|	
+|-b <FILE>	|True, if <FILE> exists and is a block special file.|	
+|-p <FILE>	|True, if <FILE> exists and is a named pipe (FIFO).|	
+|-S <FILE>	|True, if <FILE> exists and is a socket file.|	
+|-L <FILE>	|True, if <FILE> exists and is a symbolic link.|	
+|-h <FILE>	|True, if <FILE> exists and is a symbolic link.|	
+|-g <FILE>	|True, if <FILE> exists and has sgid bit set.|	
+|-u <FILE>	|True, if <FILE> exists and has suid bit set.|	
+|-r <FILE>	|True, if <FILE> exists and is readable.|	
+|-w <FILE>	|True, if <FILE> exists and is writable.|	
+|-x <FILE>	|True, if <FILE> exists and is executable.|	
+|-s <FILE>	|True, if <FILE> exists and has size bigger than 0 (not empty).|	
+|-t <fd>	|True, if file descriptor <fd> is open and refers to a terminal.|	
+|<FILE1> -nt <FILE2>	|True, if <FILE1> is newer than <FILE2> (mtime). :!:|	
+|<FILE1> -ot <FILE2>	|True, if <FILE1> is older than <FILE2> (mtime). :!:|	
+|<FILE1> -ef <FILE2>	|True, if <FILE1> and <FILE2> refer to the same device and inode numbers. :!:|
+
+==Example==
+<code bash>
+#!/bin/bash
+# test if /etc/passwd exists
+
+if [ -e /etc/passwd ]; then
+  echo "Alright man..." >&2
+else
+  echo "Yuck! Where is it??" >&2
+  exit 1
+fi
+</code>
+
+====Declaring a Bash Variable====
+
+Using declare statement in bash, we can limit the value assigned to the variables. It restricts the properties of variables. Option in a declare statement is used to determine the type of a variable.\\
+Syntax:\\
+''declare option variablename''
+  * declare is a keyword
+  * option could be:
+    *-r read only variable
+    *-i integer variable
+    *-a array variable
+    *-f for funtions
+    *-x declares and export to subsequent commands via the environment.
+
+===== And &&  Or || =====
+
+Sometimes we only want to do something if multiple conditions are met. Other times we would like to perform the action if one of several condition is met. We can accommodate these with boolean operators.
+
+  * and - &&
+  * or - ||
+
+For instance maybe we only want to perform an operation if the file is readable and has a size greater than zero.
+
+===== and.sh =====
+<code bash>
+#!/bin/bash
+# and example
+if [ -r $1 ] && [ -s $1 ]
+then
+echo This file is useful.
+fi</code>
+Maybe we would like to perform something slightly different if the user is either bob or andy.
+
+===== or.sh =====
+<code bash>
+#!/bin/bash
+# or example
+if [ $USER == 'bob' ] || [ $USER == 'andy' ]
+then
+ls -alh
+else
+ls
+fi</code>

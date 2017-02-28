@@ -1,0 +1,48 @@
+====== SSH Config File ======
+=== Edit ~/.ssh/config ===
+<code bash>
+### default for all ##
+Host *
+     ForwardAgent no
+     ForwardX11 no
+     ForwardX11Trusted yes
+     User nixcraft
+     Port 22
+     Protocol 2
+     ServerAliveInterval 60
+     ServerAliveCountMax 30
+ 
+## override as per host ##
+Host server1
+     HostName server1.cyberciti.biz
+     User nixcraft
+     Port 4242
+     IdentityFile /nfs/shared/users/nixcraft/keys/server1/id_rsa
+ 
+## Home nas server ##
+Host nas01
+     HostName 192.168.1.100
+     User root
+     IdentityFile ~/.ssh/nas01.key
+</code>
+
+====== SCP - Copy files with SSH ======
+
+
+====Copy the file "foobar.txt" from the local host to a remote host====
+
+<code bash>$ scp foobar.txt your_username@remotehost.edu:/some/remote/directory</code>
+
+====Copy the file "foobar.txt" from a remote host to the local host====
+
+<code bash>$ scp your_username@remotehost.edu:foobar.txt /some/local/directory</code>
+
+===Copying the files "foo.txt" and "bar.txt" from the local host to your home directory on the remote host===
+
+<code bash>$ scp foo.txt bar.txt your_username@remotehost.edu:~</code>
+
+===Copy the file "foobar.txt" from the local host to a remote host using port 2264===
+
+<code bash>$ scp -P 2264 foobar.txt your_username@remotehost.edu:/some/remote/directory</code>
+
+

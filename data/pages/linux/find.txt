@@ -1,0 +1,20 @@
+==== Delete Files Using Linux find Command ====
+Under this method, we can use find command exclusively with appropriate options or in conjunction with xargs command by employing a pipeline as in the forms below:
+
+<code bash>$ find /directory/ -type f -not -name 'PATTERN' -delete
+$ find /directory/ -type f -not -name 'PATTERN' -print0 | xargs -0 -I {} rm {}
+$ find /directory/ -type f -not -name 'PATTERN' -print0 | xargs -0 -I {} rm [options] {}</code>
+5. The following command will delete all files apart from .gz files in the current directory:
+
+<code bash>$ find . -type f -not -name '*.gz'-delete</code>
+
+6. Using a pipeline and xargs, you can modify the case above as follows:
+
+<code bash>$ find . -type f -not -name '*gz' -print0 | xargs -0  -I {} rm -v {}</code>
+
+7. Let us look at one additional example, the command below will wipe out all files excluding .gz, .odt, and  .jpg files in the current directory:
+
+<code bash>$ find . -type f -not \(-name '*gz' -or -name '*odt' -or -name '*.jpg' \) -delete</code>
+
+====Find files modified today====
+<code bash>find . -maxdepth 1 -newermt "12/06/16"</code>

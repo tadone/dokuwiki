@@ -1,0 +1,2 @@
+=== Updating group policy ===
+Type **gpupdate** at a command prompt.

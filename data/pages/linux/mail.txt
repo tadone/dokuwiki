@@ -1,0 +1,95 @@
+====Installing send-only mail client "Exim4"====
+
+In order to be able to send emails from a Linux machine we need to install Message Transfer Agent (MTA). After some research  I decided Exim would be lightweight enough to serve this purpose. Here is an explanation from DigitalOcean:
+
+//A Message Transfer Agent, or Mail Transfer Agent, transfers electronic mail messages from one computer to another. An MTA implements both the client (sending) and server (receiving) portions of the Simple Mail Transfer Protocol (SMTP).//
+
+//Another popular MTA is Postfix; however, users that do not require a full-fledged mail server prefer the Exim send-only mail server because it is lightweight. Thus, Exim is a good choice for WordPress installations or server-monitoring apps that need to send email notifications.//
+
+Even though the Exim installation will ask for a FQDM we can use anything since messages will get sent to spam anyway. Easiest thing to do is just mark as "Not Spam" in Ex. Gmail.
+
+====Installation====
+To install Exim and its dependencies, execute:
+
+''sudo apt-get -y install exim4''
+
+To configure Exim for your environment, execute:
+
+''sudo dpkg-reconfigure exim4-config''
+
+Configure everything according to your needs. If you ever need to modify any of your settings, simply re-run the configuration wizard.
+
+===Mail Server Configuration Type===
+
+The first configuration window you encounter will ask you to select the **"mail server configuration type that best meets your needs."** If not already highlighted, use the arrow keys on your keyboard to select 
+
+''internet site; mail is sent and received directly using SMTP'':
+
+{{https://assets.digitalocean.com/articles/exim_ubuntu/img1.png}}
+
+Next, tap the "Tab" key (to highlight ''<Ok>'') and press "Enter".
+
+===Enter FQDN===
+
+The next configuration window will ask that you enter your system's fully qualified domain name (FQDN) in the mail name configuration screen. Type the command below, substituting hostname, yourdomain & tld with your own values:
+
+''hostname.yourdomain.tld''
+
+Next, tap the "Tab" key (to highlight ''<Ok>'') and press "Enter".
+
+===SMTP Listener===
+
+The ensuing configuration window will ask you to decide on which interfaces you would like Exim to "listen." Enter:
+
+''127.0.0.1; ::1''
+
+Next, tap the "Tab" key (to highlight ''<Ok>'') and press "Enter".
+
+===Mail Destinations===
+
+The configuration prompt that follows will ask that you enter all of the destinations for which Exim should accept mail. List your:
+
+  * FQDN;
+  * local hostname;
+  * ''localhost.localdomain;''
+  * ''localhost''
+
+{{https://assets.digitalocean.com/articles/exim_ubuntu/img2.png}}
+
+Next, tap the "Tab" key (to highlight ''<Ok>'') and press "Enter".
+
+===Relay Options===
+
+Advanced configurations beyond the scope of this article allow you to use Exim as a relay mail server. In the next screen, leave the "relay mail" field **blank**.
+
+Tap the "Tab" key (to highlight ''<Ok>'') and press "Enter".
+
+The subsequent screen is a follow-up to the relay-mail-server option. Leave this window **blank** and tap the "Tab" key (to highlight ''<Ok>'') and press "Enter".
+
+===DNS Queries===
+
+Select **No** when asked whether to keep DNS queries to a minimum.
+
+Make sure that ''<No>'' is highlighted and press "Enter".
+
+===Delivery Method===
+
+In the window that follows, choose whichever mail delivery method you'd like for incoming mail; although the **Maildir format** can make handling individual, locally-delivered mail messages easier:
+
+{{https://assets.digitalocean.com/articles/exim_ubuntu/img3.png}}
+
+Next, tap the "Tab" key (to highlight ''<Ok>'') and press "Enter".
+
+===Configuration File===
+
+In the ensuing prompt, choose the (default) **unsplit** configuration file by selecting **"No"**.
+
+Make sure that ''<No>'' is highlighted and press "Enter".
+
+====Test Your Mail Configuration====
+
+Send a test email to make sure everything is configured correctly by issuing the following command (substituting **someone@somedomain.tld** for a valid, external email address):
+
+<code bash>echo "This is a test." | mail -s Testing someone@somedomain.tld</code>
+
+**Note**: You may need check the recipient's SPAM folder, in the event that the SPF record is not configured correctly.

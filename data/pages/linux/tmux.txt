@@ -1,0 +1,13 @@
+**Copy Mode**
+
+Enter copy mode with ''PREFIX [''. Jump around the buffer by scrolling or searching (? and /) and grab text with ''Space'' and ''Enter''. Then paste with ''PREFIX ]''.
+
+Plus, you can turn on Vim-like bindings (setw -g mode-keys vi) to make moving around the buffer easy.
+
+[[http://danielallendeutsch.com/blog/16-using-tmux-properly.html|Using Tmux Properly]]
+
+**Scrolling Back**
+
+''Ctrl-a'' then ''['' then you can use your normal navigation keys to scroll around (eg. Up Arrow or PgDn). Press ''q'' to quit scroll mode.
+
+Alternatively you can press ''Ctrl-a PgUp'' to go directly into copy mode and scroll one page up (which is what it sounds like you will want most of the time)

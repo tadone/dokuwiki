@@ -1,0 +1,4 @@
+===Linux lockfile explained, how to use them the easy or hard way===
+
+http://dev-random.net/linux-lockfile-explained-how-to-use-them-the-easy-or-hard-way/
+

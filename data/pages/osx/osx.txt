@@ -1,0 +1,6 @@
+=== OSX Setup ===
+
+Clone ''macsetup'' repo.
+
+Run the bootstrap script, which includes scripts to customize the OSX
+

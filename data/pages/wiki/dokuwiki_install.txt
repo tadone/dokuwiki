@@ -1,0 +1,5 @@
+===Specificities of the Debian package===
+
+  * DokuWiki root is /usr/share/dokuwiki,
+  * wiki data is /var/lib/dokuwiki/data,
+  * configuration is /etc/dokuwiki;

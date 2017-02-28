@@ -1,0 +1,5 @@
+====tar====
+''tar -cvf archive.tar {file/dir}'' - Create archive.tar from file/directory\\
+''tar -c**z**vf'' - Use Gzip compression\\
+''tar -c**j**vf'' - Use Bzip2 compression\\
+''tar -xvf archive.tar {dir}'' - Extract archive.tar to directory\\

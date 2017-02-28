@@ -1,0 +1,55 @@
+====CPU Load====
+Number of processes that are currently running plus the number that are waiting. 
+
+On multi-processor system, the load is relative to the number of processor cores available. The "100% utilization" mark is 1.00 on a single-core system, 2.00, on a dual-core, 4.00 on a quad-core, etc.
+
+The load averages, show **1**, **5**, **15** minute averages:
+<code>~ $ uptime
+23:05 up 14 days, 6:08, 7 users, load averages: 0.65 0.42 0.36</code>
+
+To increase CPU Load to 100% run multiple instances of:
+<code bash>yes > /dev/null &</code>
+[[http://blog.scoutapp.com/articles/2009/07/31/understanding-load-averages|Understanding Linux CPU Load]]
+
+====Time Stamps====
+There are 3 kind of "timestamps":
+
+  * Access - the last time the file was read
+  * Modify - the last time the file was modified (content has been modified)
+  * Change - the last time meta data of the file was changed (e.g. permissions)
+To display this information, you can use stat which is part of the coreutils.
+
+''stat'' will show you also some more information like the device, inodes, links, etc.
+=== Create symbolic link===
+
+''ln -s /path/to/file /path/to/symlink''
+
+===Hide output of a command===
+
+Usually, output goes either to file descriptor 1 (stdout) or 2 (stderr).To eliminate output from commands:
+<code bash>
+{
+  /your/first/command
+  /your/second/command
+} &> /dev/null
+</code>
+
+
+
+==== Heredoc====
+<code bash>cat << EOF > /tmp/yourfilehere
+These contents will be written to the file.
+        This line is indented.
+EOF</code>
+Use **<<-** (followed by a dash) to disable leading tabs (Note that to test this you will need to replace the leading whitespace with a tab character:
+<code bash>
+if true ; then
+    cat <<- EOF > /tmp/yourfilehere
+    The leading tab is ignored.
+    EOF
+fi</code>
+If you don't want to interpret variables in the text, then use single quotes:
+<code bash>
+cat << 'EOF' > /tmp/yourfilehere
+The variable $FOO will not be interpreted.
+EOF</code>

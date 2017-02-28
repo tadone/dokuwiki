@@ -1,0 +1,36 @@
+====Fail2Ban====
+
+findtime is the moving window within which fail2ban keeps track of failed login attempts. If findtime is set to 10 minutes, and the host only triggers a failed login every 11 minutes, a ban will never occur.
+
+The default findtime is 600 seconds (10 minutes). I jacked it up to 10800 (3 hours).
+
+I also increased my bantime to 6 hours (21600 seconds).
+
+Here are the relevant lines from the [DEFAULT] section of my /etc/fail2ban/jail.local file:
+
+[DEFAULT]
+
+...\\
+''# 3 hours = 3600*3 = 10800\\
+findtime = 10800\\
+# 6 hours = 3600*6 = 21600\\
+bantime = 21600\\
+maxretry = 3''
+
+
+You’ll need to restart fail2ban in order for the changes to take effect:
+
+''$ /etc/init.d/fail2ban restart''
+
+You can tail your fail2ban log during the restart to make sure your changes took:
+
+''$ tail -f /var/log/fail2ban.log''
+
+//...\\
+2011-01-24 16:32:50,493 fail2ban.jail : INFO Creating new jail 'ssh'\\
+2011-01-24 16:32:50,493 fail2ban.jail : INFO Jail 'ssh' uses poller\\
+2011-01-24 16:32:50,506 fail2ban.filter : INFO Added logfile = /var/log/auth.log\\
+2011-01-24 16:32:50,506 fail2ban.filter : INFO Set maxRetry = 3\\
+2011-01-24 16:32:50,507 fail2ban.filter : INFO Set findtime = 10800\\
+2011-01-24 16:32:50,507 fail2ban.actions: INFO Set banTime = 21600\\
+2011-01-24 16:32:50,581 fail2ban.jail : INFO Jail 'ssh' started//\\

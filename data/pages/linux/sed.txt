@@ -1,0 +1,73 @@
+====Sed Basics====
+''sed -i 's/original/new/g' file.txt''
+Explanation:
+
+**sed** = Stream EDitor
+''-i'' = in-place (i.e. save back to the original file)\\
+The command string:\\
+''s'' = the substitute command\\
+''original'' = a regular expression describing the word to replace (or just the word itself)\\
+''new'' = the text to replace it with\\
+''g'' = global (i.e. replace all and not just the first occurrence)\\
+''p'' = to print changed lines <code>sed -n 's/original/new/gp'</code>
+''file.txt'' = the file name\\
+====Replacing Variables====
+We can use variable in sed but with double quote:
+<code>sed -i "s/$var/r_str/g" file_name</code>
+If you have a slash / in the variable then use different separator, like below:
+<code>sed -i "s|$var|r_str|g" file_name</code>
+
+====Replacing all occurrences of one string with another in all files====
+''find . -type f -exec sed -i 's/foo/bar/g' {} +''
+====Convert DOS newlines (CR/LF) to Unix format Using sed====
+<code>sed 's/.$//' file.txt</code>
+
+==== Using "&" with Sed====
+Replace "pattern" with "new pattern". The & symbol expands to substitute the searched pattern.
+<code>sed -i "s|pattern|new &|g"</code>
+====Simple Search & Replace function====
+<code>
+search_replace() {
+    local search=$1
+    local replace=$2
+    sed -i "" "s/${search}/${replace}/g" file.txt
+}
+</code>
+====Match only lines that contain certain pattern====
+We can, instead, use regular expressions to match only lines that contain a certain pattern. We do this by placing our match pattern between two forward slashes (/) prior to giving the command strings:
+<code>sed '/singing/s/it/& loudly/' annoying.txt</code>
+Substitute "it" with "it loudly" only on lines that have "singing" in them.
+====Multiple Sed operations in one go====
+Another approach to stringing commands together is using a semi-colon character (;) to separate distinct commands. This works the same as above, but the "-e" is not required.
+<code>sed 's/and/\&/;s/people/horses/' annoying.txt</code>
+The ''&'' is escaped here with ''\''.
+====Advanced Match and Replace using script====
+Replace the variables in the config.php file.
+<sxh>
+# config.php
+define( 'DB_NAME', '%%DB_NAME%%' );
+define( 'DB_USER', '%%DB_USER%%' );
+define( 'DB_PASSWORD', '%%DB_PASSWORD%%' );
+define( 'DB_HOST', '%%DB_HOST%%' );</sxh>
+<sxh>
+# Associative array where key represents a search string,
+# and the value itself represents the replace string.
+declare -A confs # declare an array
+confs=(
+    [%%DB_USER%%]=bob
+    [%%DB_NAME%%]=bobs_db
+    [%%DB_PASSWORD%%]=hammertime
+    [%%DB_HOST%%]=localhost
+)
+
+configurer() {
+    # Loop the config array
+    for i in "${!confs[@]}"
+    do
+        search=$i
+        replace=${confs_wp[$i]}
+        # Note the "" after -i, needed in OS X
+        sed -i "" "s/${search}/${replace}/g" config.php
+    done
+}
+configurer</sxh>

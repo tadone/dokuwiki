@@ -1,0 +1,48 @@
+==== Moving around on the command line ====
+<code>
+ctrl-a  # Move to the start of line
+ctrl-e  # Move to end of a line
+
+ctrl-k  # Remove (Cut) text after the cursor
+ctrl-y  # Yank text (Copy)
+
+ctrl-r  # Search previous command from history
+</code>
+
+While ''!$'' is not a keybinding, you end up with the same result. But in this case, the shell will only substitute ''!$'' with the last argument of the previous command only after you have pressed enter:
+<code bash>
+larso@goethe:~$ mkdir /var/tmp/foo
+larso@goethe:~$ cd !$
+cd /var/tmp/foo
+larso@goethe:/var/tmp/foo$ </code>
+
+
+==== Copy file to multiple directories using simple loop ====
+<code bash>for dest in /dir1/ /dir2/ ; do cp -v file "$dest" ; done
+for dest in /tmp/1/ /tmp2/ $HOME/3/ ; do cp -v "/etc/resolv.conf" "$dest" ; done</code>
+==== Delete Files Using Extended Pattern Matching Operators ====
+
+The different extended pattern matching operators are listed below, where pattern-list is a list containing one or more filenames, separated using the | character:
+
+  * ''*(pattern-list)'' – matches zero or more occurrences of the specified patterns
+  * ''?(pattern-list)'' – matches zero or one occurrence of the specified patterns
+  * ''+(pattern-list)'' – matches one or more occurrences of the specified patterns
+  * ''@(pattern-list)'' – matches one of the specified patterns
+  * ''!(pattern-list)'' – matches anything except one of the given patterns
+To use them, enable the ''extglob'' shell option as follows:
+<code bash># shopt -s extglob</code>
+=== 1. To delete all files in a directory except filename, type the command below: ===
+<code bash>$ rm -v !("filename")</code>
+{{http://www.tecmint.com/wp-content/uploads/2016/10/DeleteAll-Files-Except-One-File-in-Linux.png}}
+=== 2. To delete all files with the exception of filename1 and filename2: ===
+<code bash>$ rm -v !("filename1"|"filename2")</code> 
+{{http://www.tecmint.com/wp-content/uploads/2016/10/Delete-All-Files-Except-Few-Files-in-Linux.png}}
+3. The example below shows how to remove all files other than all .zip files interactively:
+<code bash>$ rm -i !(*.zip)</code>
+{{http://www.tecmint.com/wp-content/uploads/2016/10/Delete-All-Files-Except-Zip-Files-in-Linux.png}}
+4. Next, you can delete all files in a directory apart from all .zip and .odt files as follows, while displaying what is being done:
+<code bash>$ rm -v !(*.zip|*.odt)</code>
+{{http://www.tecmint.com/wp-content/uploads/2016/10/Delete-All-Files-Except-Certain-File-Extensions.png}}
+
+Once you have all the required commands, turn off the extglob shell option like so:
+<code bash>$ shopt -u extglob</code>

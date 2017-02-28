@@ -1,0 +1,94 @@
+======NMAP======
+Once you have Nmap installed, the syntax for using it is:
+
+<sxh>$ nmap  [scan type...]  options  {target specification}</sxh>
+
+Where the argument {target specification}, can be replaced by hostnames, IP addresses, networks and so on.
+<sxh>$ ifconfig
+OR
+$ ip addr show</sxh>
+
+<sxh>$ nmap  -sn  10.42.0.0/24</sxh>
+In the command above:
+
+''-sn'' – is the type of scan, which means a ping scan. By default, Nmap performs port scanning, but this scan will disable port scanning.\\
+''10.42.0.0/24'' – is the target network, replace it with your actual network.
+
+====Who Is On My Network?====
+This command finds all hosts on a LAN subnet:
+<code bash>
+$ nmap -sP 192.168.10.0/24
+Starting Nmap 5.00 ( http://nmap.org ) at 2011-07-18 11:01 PDT
+Host freya.alrac.net (192.168.10.105) is up (0.0018s latency).
+Host demeter.alrac.net 192.168.10.107 is up (0.00012s latency).
+Host persephone.alrac.net 192.168.10.109 is up (0.00015s latency).
+Nmap done: 256 IP addresses (3 hosts up) scanned in 27.31 seconds
+</code>
+====Scan a host====
+The **-sS** scan (TCP SYN scan) is a fairly benign scan that doesn't bog down your network or set off alarms. 
+It requires root privileges, and shows which ports are open on your network hosts:
+<code bash>
+# nmap -sS freya
+
+Starting Nmap 5.00 ( http://nmap.org ) at 2011-07-18 11:34 PDT
+Interesting ports on freya.alrac.net (192.168.10.105):
+Not shown: 996 closed ports
+PORT    STATE SERVICE
+22/tcp  open  ssh
+139/tcp open  netbios-ssn
+445/tcp open  microsoft-ds
+631/tcp open  ipp
+</code>
+====Who is on my server?====
+Use **whowatch**, a utility that displays all logged in users on a machine. Just run whowatch without options, and it opens a nice ncurses display:
+<code bash>
+5 users: (4 local, 0 telnet, 1 ssh, 1 other)  load: 0.31, 0.23, 0.13
+
+(login) carla  tty1   xinit /etc/xdg/xfce4/xinitrc -- /etc/X11/xinit/
+(login) terry  tty2   -bash
+</code>
+Whoops! Terry is logged in. Nobody else should be logged in. So what to do? Use the arrow keys to navigate to the first unauthorized user line, if there is more than one, and press the return key:
+<code bash>
+7 users: (5 local, 0 telnet, 1 ssh, 2 other)
+(init)         terry      tty2   
+ 1599   - /bin/login --                                                                            
+ 3239    `- -bash
+</code>
+Arrow-key to the line with the lowest process number and press Ctrl+k to log the user off the system. 
+Then go figure out how they got there and repair the breach. Press F9 to display the whowatch menus.
+
+====Quick Throughput Measurements with iperf====
+**iperf** operates in a client-server mode, so you need to install it on all machines you want to test. 
+Then open a server session on one machine, and connect to it from a client session on a second machine. 
+The server session looks like this:
+<code bash>
+host1:~$ iperf -s
+------------------------------------------------------------
+Server listening on TCP port 5001
+TCP window size: 85.3 KByte (default)
+------------------------------------------------------------
+</code>
+The client session looks like this:
+<code bash>
+host2:~$ iperf -c host1
+------------------------------------------------------------
+Client connecting to host1, TCP port 5001
+TCP window size: 16.0 KByte (default)
+------------------------------------------------------------
+</code>
+When the test run is finished, both will show similar output like this:
+<code bash>
+[  3] local 192.168.10.25 port 40245 connected with 192.168.20.25 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0-10.0 sec  8.18 MBytes  6.85 Mbits/sec
+</code>
+6.85 Mbits/sec is pretty slow, but not surprising since host1 has an old wireless network interface. For Fast Ethernet and GigE you should see many times higher speeds. 
+Add the **-d** options to run the test both ways on duplexing network interfaces. On the server host you'll see results like this:
+<code bash>
+[  5]  0.0-10.0 sec  99 MBytes  82.1 Mbits/sec
+[  6]  0.0-10.1 sec 105 MBytes  89.4 Kbits/sec
+</code>
+
+====== Find RasberryPi on network using Nmap ======
+
+<code bash>sudo nmap -sP 192.168.1.0/24 | awk '/^Nmap/{ip=$NF}/B8:27:EB/{print ip}'</code>

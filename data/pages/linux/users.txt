@@ -1,0 +1,52 @@
+=====User Management=====
+
+**Add user to /etc/sudoers without password**
+
+Run as root:''visudo''
+<code>## Same thing without a password
+#%wheel ALL=(ALL)       NOPASSWD: ALL
+ec2-user        ALL=(ALL)       NOPASSWD:ALL</code>
+
+**Add New User as Sudoer**
+
+<code>sudo adduser <username> sudo</code>
+
+**Add Existing User in sudo Group**
+
+<code>sudo usermod -aG sudo <username></code>
+
+**Remove Existing User from sudo Group**
+
+<code>sudo gpasswd  -d <username> sudo</code>
+
+===Config file locations===
+
+<code>sudo vi /etc/sudoers
+root    ALL=(ALL:ALL) ALL
+newuser ALL=(ALL:ALL) ALL</code>
+
+===Add a existing user to existing group===
+
+<code>usermod -a -G ftp <username></code>
+
+usermod command options summary
+Option	Purpose
+-a --append	Add the user to the supplementary group(s). Use only with the -G option.
+-g GROUP
+--gid GROUP	Use this GROUP as the default group.
+-G GRP1,GRP2
+--groups GRP1,GRP2	Add the user to GRP1,GRP2 secondary group.
+Also ''/etc/passwd'' for list of users and ''/etc/shadow'' for encrypted passwords.
+
+Type ''groups'' to see a list of groups for the user from ''/etc/group''.
+
+====Delete user along with the home directory====
+''deluser --remove-home <user>''
+
+
+====Passwords====
+''echo "USERNAME:NEWPASSWORD" | chpasswd'' 
+
+or 
+
+''chpasswd <<<"$USERNAME:$PASSWORD"''

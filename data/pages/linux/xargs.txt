@@ -1,0 +1,24 @@
+==== Advanced XARGS ====
+In your example you don't need to use xargs at all since find will do exactly and safely what you want to do.
+
+Exactly what you want using find is:
+
+<code>find -maxdepth 1 -name '*Cases*' -exec touch {} +</code>
+
+In this example ''-maxdepth 1'' means only search in the current directory, don't descend into any subdirectories; by default find will look in all subdirectories (which is often what you want) unless you constraint it with ''maxdepth''. 
+The ''{}'' is the name of the file that will get substituted in its place and the ''+'' is one of two end-of-command markers, the other being '';''. 
+The difference between them is that '';'' means exec the command on each file one at a time, whereas ''+'' means exec the command on all the files at once. Note, however, that your shell will probably try to interpret '';'' itself, so you will need to escape it with either ''\;'' or ''';'''. 
+Yes, find has a number of little annoyances like this, but its power more than makes up for it.
+
+Both find and xargs are tricky to learn at first. To help you learn xargs try using the ''-p'' or ''--interactive'' option which will show you the command it is about to execute and prompt you whether or not you want to run it.
+
+Similarly with find you can use -ok in place of -exec to prompt you whether or not you want to run the command.
+
+There are times, though, when find won't be able to do everything you want and that is where xargs comes in. The ''-exec'' command will only accept one instance of ''{}'' appearing, so if you would get an error with 
+<code>find -type f -exec cp {} {}.bak \; </code>
+so you could instead do it like so: 
+<code>find -type f -print0 | xargs -0 -l1 -IX cp X X.bak</code>
+
+You can learn more about Run Commands in the GNU Findutils manual.
+
+Also, I mentioned that find safely does what you want because when you are dealing with files you are going to encounter spaces and other characters that will cause problems with xargs unless you use the -0 or --null option along with something that generates input items terminated by a null character instead of whitespace.

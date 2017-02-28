@@ -1,0 +1,31 @@
+==== Basics ====
+Get current PowerShell **version**:
+<code>$PSVersionTable.PSVersion</code>
+
+===Setting Execution Policy===
+Running as administrator, you can set the execution policy by typing this into your PowerShell window:
+<code>Set-ExecutionPolicy RemoteSigned</code>
+You can bypass this policy by adding ''-ExecutionPolicy ByPass'' when running PowerShell
+<code>powershell -ExecutionPolicy ByPass -File script.ps1</code>
+Set it back to restricted:
+<code>Set-ExecutionPolicy Restricted</code>
+
+===Find in string (like grep)===
+<code>Get-ChildItem | findstr 'keyword'</code>
+Using regex:
+<code>Get-ChildItem filename.txt | Select-String -Pattern <regexPattern></code>
+
+
+So this is not really a beginner task in my opinion but it's not far. Start with this instead.
+Install powershell 3.0 at a minimum, but I recommend 4.0. Install .net as well
+
+    * Create a directory on your laptop, and make 10 random files that end in anything you choose. You can add text too them if you care but it's not required.
+  * cd to that dir and run <code>get-childitem</code>
+  * now write this: <code>$var = get-childitem, then type $var</code>
+  * now you have the output saved in a variable called var. now type $var | get-member this will output property in that variable(note that everything in posh is an object).
+  * now try to use one of the methods listed $var.FullName for example.
+  * build a foreach loop: <code>foreach ($item in $var) {$item.FullName}</code>
+  * now make a directory that has multiple folders like production does and mess around in the same way but using the recursive flag for get-childitem
+
+I think this will get you pointed in the right direction, if you have questions let me know.
+Edit: Google get-childitem microsofts documentation is very good and there are tons of examples for each built in cmdlet.

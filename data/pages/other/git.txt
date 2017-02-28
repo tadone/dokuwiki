@@ -1,0 +1,20 @@
+**origin** -- is the repository that files were cloned from\\
+**master** -- it's the master branch
+
+===Push changes to github repo===
+<code bash>
+git push  <REMOTENAME> <BRANCHNAME> 
+git push origin master # Push changes from local master to remote origin</code>
+
+===Compare local git branch with remote branch===
+<code bash>git diff <local branch> <remote>/<remote branch>
+git diff master origin/master # Difference between local master and remote origin 
+git diff --summary master origin
+</code>
+
+===Rename Github Repository===
+Find out what remote name(s) refer to that URL
+<code bash>git remote -v
+origin  git@github.com:someuser/someproject.git</code>
+Then, set the new URL
+<code bash>git remote set-url origin git@github.com:someuser/newprojectname.git</code>

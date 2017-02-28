@@ -1,0 +1,69 @@
+===== Bash Scripting =====
+**Empty String Variable**
+<code bash>
+if  [ -z "$VAR1" ];  # This will return true if a variable is unset or set to the empty string ("")
+# the inverse of -z is -n if [ -n "$VAR" ];
+</code>
+**Directory Exists**
+<code bash>  if  [ ! -d $DIR ]; # Test if directory $DIR (does not !) exists</code>
+  
+=== Assign the output to an array ===
+To assign the output to an array, you need to use a command substitution inside of an array assignment.
+
+<code>arr=($(find . -type f -not -name 'm11*' -not -name 'm12*' -not -name 'm10*' -name '*mp4' -execdir echo {} ";"))</code>
+
+The inner ''$()'' runs the command while the outer ''()'' causes the output to be an array. The problem with this is that it will not work with files containing spaces. To handle this, you can set IFS to ''\n''.
+<code>
+IFS=$'\n'
+arr=($(find . -type f -not -name 'm11*' -not -name 'm12*' -not -name 'm10*' -name '*mp4' -execdir echo {} ";"))
+unset IFS
+</code>
+
+=== Arrays ===
+<sxh>array=("first item" "second item" "third" "item")</sxh>
+To print an array use:
+<code>printf "%s\n" "${array[@]}"</code>
+
+==== Loops ====
+=== For Loop ===
+<sxh>
+#!/bin/bash
+# declare an array called array and define 3 values
+array=( one two three )
+for i in "${array[@]}"
+do
+	echo $i
+done
+</sxh>
+One line version:
+<sxh>for i in "${arr[@]}"; do echo $i; done</sxh>
+
+**Read from file**
+
+Put your urls in a file urls
+make a script ''ytlist.sh'' with
+<code bash>
+while read url
+do
+    youtube-dl ... "$url"
+done
+</code>
+then ''ytlist.sh < urls''
+
+===More Guides===
+[[linux:comparison|Bash Comparisons]]
+
+[[linux:bash|BASH]]
+
+[[linux:bash_tips|BASH Tips]]
+
+
+==== Guides ====
+
+http://mywiki.wooledge.org/FullBashGuide
+
+Another good one. Good examples
+
+http://wiki.bash-hackers.org/start
+
+http://ryanstutorials.net/bash-scripting-tutorial/bash-if-statements.php

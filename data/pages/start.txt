@@ -1,0 +1,12 @@
+** This is a main page for my Wiki. **
+
+===ToDo List===
+<todo>Finish backing up DokuWiki</todo>
+
+<todo>MacOS setup script</todo>
+
+<todo #tadone:2017-02-20>dotfiles</todo>
+
+<todo>Copy chrome extensions from work pc</todo>
+
+<todo>Copy files from work pc</todo>

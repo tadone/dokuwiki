@@ -1,0 +1,7 @@
+http://mywiki.wooledge.org/FullBashGuide
+
+Another good one. Good examples
+
+http://wiki.bash-hackers.org/start
+
+http://ryanstutorials.net/bash-scripting-tutorial/bash-if-statements.php
