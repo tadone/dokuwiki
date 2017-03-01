@@ -14,6 +14,8 @@
     * [[linux:vim|VIM]]
     * [[linux:systemd|SystemD]]
   * [[bash:bash|BASH Scripting]]
+  * [[docker:docker|Docker]]
+  * [[ansible:ansible|Ansible]]
   * [[other:git|GIT]]
   * [[other:cheatsheet|Cheat Sheets]]
   * [[windows:windows|Windows]]
