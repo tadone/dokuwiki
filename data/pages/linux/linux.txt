@@ -47,5 +47,6 @@ To check number of banned IPs
 
 ====Extra Packages====
 **bmon** -- TUI Bandwidth monitoring [[https://github.com/tgraf/bmon|Bmon Github]]\\
-**Glances** -- System monitoring tool, similar to Htop [[https://nicolargo.github.io/glances/|Glances]]
-**colordiff** -- Diff tool
+**Glances** -- System monitoring tool, similar to Htop [[https://nicolargo.github.io/glances/|Glances]]\\
+**colordiff** -- Diff tool\\
+**lnav** -- Parse and display logs
