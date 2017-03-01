@@ -1,6 +1,6 @@
 ====Managing Software & Services====
 Find installed package:
-<code bash>rpm -qa | grep <package_name> # Query all installed packages and grep by package name</code>
+<sxh bash>rpm -qa | grep <package_name> # Query all installed packages and grep by package name</sxh>
 Start and stop services and configure services to start automatically at boot
 <sxh bash>systemctl start/stop/enable/status httpd # Start, Stop, Enable, and Status of Service
 systemctl is-active/is-enabled httpd</sxh>
@@ -22,17 +22,17 @@ List all services:
 Start a service:
 <code bash>service httpd start</code>
 Alternatively start:
-<code bash>/etc/init.d/httpd start</code>
+<sxh bash>/etc/init.d/httpd start</sxh>
 
 ====System Configuration====
 ===Change hostname===
-<code>hostname new-server-name-here</code>
+<sxh>hostname new-server-name-here</sxh>
 
 Next edit the /etc/hostname file and update hostname:
-<code>vi /etc/hostname</code>
+<sxh>vi /etc/hostname</sxh>
 
 Finally, edit the /etc/hosts file and update the lines that reads your old-host-name:
-<code>vi /etc/hosts</code>
+<sxh>vi /etc/hosts</sxh>
 
 From:\\
 ''127.0.1.1 old-host-name''\\
@@ -40,28 +40,28 @@ To:\\
 ''127.0.1.1 new-server-name-here''
 
 **Using SystemD**
-<code>hostnamectl set-hostname new-server-name</code>
+<sxh>hostnamectl set-hostname new-server-name</sxh>
 
 ====Add Repo to RHEL/CentOS====
 Repo files are stored in ''/etc/yum.repos.d/'' directory with ''.repo'' extension. Edit to enable/disable GPG key checking.
 
 Use **yum-config-manager** to add repo by URL:
-<code bash>yum-config-manager --add-repo http://www.example.com/example.repo</code>
+<sxh bash>yum-config-manager --add-repo http://www.example.com/example.repo</sxh>
 Easier solution is to download and install rpm package:
-<code bash>wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-sudo rpm -Uvh epel-release-latest-7*.rpm</code>
+<sxh bash>wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+sudo rpm -Uvh epel-release-latest-7*.rpm</sxh>
 
 ====Remove Repository from RHEL/CentOS====
 To find the name of the Yum repository
-<code>rpm -qf /etc/yum.repos.d/RepoName.repo</code>
+<sxh>rpm -qf /etc/yum.repos.d/RepoName.repo</sxh>
 Then use yum to remove the repository
-<code>
+<sxh>
 rpm -qf /etc/yum.repos.d/rpmforge.repo
 rpmforge-release-0.5.1-1.el5.rf
-yum remove rpmforge-release</code>
+yum remove rpmforge-release</sxh>
 
 Alternatively, manually remove the .repo files (example is **epel.repo** & **epel-testing.repo**)
-<code>rm epel.repo epel-testing.repo</code>
+<sxh>rm epel.repo epel-testing.repo</sxh>
 Delete GPG keys also 
-<code>rm /etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL
-yum clean all</code>
+<sxh>rm /etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL
+yum clean all</sxh>
