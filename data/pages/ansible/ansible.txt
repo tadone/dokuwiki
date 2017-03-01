@@ -1,12 +1,12 @@
 ====Ansible====
-**Ansible Terms**
+The hosts file consist of servers on which the Ansible will 
+===Ansible Terms===
 
-''Controller Machine'' the machine where Ansible is installed, responsible for running the provisioning on the servers you are managing\\
-''Inventory'' an INI file that contains information about the servers you are managing\\
-''Playbook'' the entry point for Ansible provisionings, where the automation is defined through tasks using YAML format
-Task: a block that defines a single procedure to be executed, e.g.: install a package\\
-''Module'' a module typically abstracts a system task, like dealing with packages or creating and changing files. Ansible has a multitude of built-in modules, but you can also create custom ones\\
-''Role'' a pre-defined way for organizing playbooks and other files in order to facilitate sharing and reusing portions of a provisioning\\
-''Play'' a provisioning executed from start to finish is called a play\\
-''Facts'' global variables containing information about the system, like network interfaces or operating system\\
-''Handlers'' used to trigger service status changes, like restarting or stopping a service
+|**Controller Machine**  | the machine where Ansible is installed, responsible for running the provisioning on the servers you are managing|
+|**Inventory**| an INI file that contains information about the servers you are managing|
+|**Playbook**| the entry point for Ansible provisionings, where the automation is defined through tasks using YAML format Task: a block that defines a single procedure to be executed, e.g.: install a package|
+|**Module**| a module typically abstracts a system task, like dealing with packages or creating and changing files. Ansible has a multitude of built-in modules, but you can also create custom ones|
+|**Role**| a pre-defined way for organizing playbooks and other files in order to facilitate sharing and reusing portions of a provisioning|
+|**Play**| a provisioning executed from start to finish is called a play|
+|**Facts**| global variables containing information about the system, like network interfaces or operating system|
+|**Handlers**| used to trigger service status changes, like restarting or stopping a service|
