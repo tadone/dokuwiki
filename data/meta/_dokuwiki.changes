@@ -17,3 +17,6 @@
 1488365720	195.205.254.66	C	ansible:ansible	tadone	created		1084
 1488377332	195.205.254.66	E	ansible:ansible	tadone			3
 1488378369	195.205.254.66	e	ansible:ansible	tadone			72
+1488452279	80.50.231.18	e	ansible:ansible	tadone			252
+1488452522	80.50.231.18	e	ansible:ansible	tadone	[Ansible] 		603
+1488452828	80.50.231.18	e	ansible:ansible	tadone	[Ansible] 		193

@@ -1,6 +1,36 @@
-====Ansible====
+====Ansible Help====
+Lists all available ansible documentation:
+<sxh>ansible-dock -l</sxh>
+Info about yum module **("=" means it's required)**
+<sxh>ansible-dock <module></sxh>
+
+====Ansible Ad-hoc Commands====
 The hosts file consist of servers on which the Ansible will 
-===Ansible Terms===
+
+<sxh>ansible <host/group/IP> -i <inventory_file> -m ping -u <user> -k</sxh>
+
+''host/group/IP'' host, group or IP as defined in inventory file
+
+|**-i** |inventory file|**-m** |module (ping, yum, user, etc.)|**-u**| user|**-k**| prompt for password|
+
+**Run Yum module to install Apache (httpd)**
+<sxh>ansible <group/host> -i inventory_file -m yum -a "name=httpd state=present" --sudo</sxh>
+
+**Enable and start Apache**
+<sxh>ansible <group/host> -i inventory_file -m service-a "name=httpd enabled=yes state=started" --sudo</sxh>
+
+**Gather all information about remote host(s)**
+<sxh>ansible <group/host> -i inventory_file -m setup</sxh>
+
+**Filter all information (facts) for specifc info**
+<sxh>ansible <group/host> -i inventory_file -m setup -a "filter=ansible_eth*"
+ansible <group/host> -i inventory_file -m setup -a "filter=ansible_mounts*"</sxh>
+
+
+
+
+
+====Ansible Terms====
 
 |**Controller Machine**  | the machine where Ansible is installed, responsible for running the provisioning on the servers you are managing|
 |**Inventory**| an INI file that contains information about the servers you are managing|
