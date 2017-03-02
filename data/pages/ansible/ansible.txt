@@ -40,3 +40,23 @@ ansible <group/host> -i inventory_file -m setup -a "filter=ansible_mounts*"</sxh
 |**Play**| a provisioning executed from start to finish is called a play|
 |**Facts**| global variables containing information about the system, like network interfaces or operating system|
 |**Handlers**| used to trigger service status changes, like restarting or stopping a service|
+
+====When Statement====
+Run command ''when'' a condition is matched:
+<sxh bash>tasks:
+  - name: "shut down Debian flavored systems"
+    command: /sbin/shutdown -t now
+    when: ansible_os_family == "Debian"
+    # note that Ansible facts and vars like ansible_os_family can be used
+    # directly in conditionals without double curly braces</sxh>
+Use ''or'' when combining conditionals:
+<sxh bash>
+tasks:
+  - name: "shut down CentOS 6 and Debian 7 systems"
+    command: /sbin/shutdown -t now
+    when: (ansible_distribution == "CentOS" and ansible_distribution_major_version == "6") or
+          (ansible_distribution == "Debian" and ansible_distribution_major_version == "7")</sxh>
+          
+====Facts (System Information)====
+Gather facts (info) about remote host:
+<sxh bash>ansible hostname.example.com -m setup</sxh>          
