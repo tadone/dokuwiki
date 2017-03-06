@@ -1,3 +1,17 @@
+=====Dokuwiki Backup=====
+
+Backup the following directories:
+
+**data/pages** - contains your current pages\\
+**data/meta** - contains meta information about your pages (like who created it originally, who subscribed to it, …)\\
+**data/media** - contains your current media (images, PDFs, …)\\
+**data/media_meta** - meta data for the media\\
+**data/attic** - all the old versions of your pages\\
+**data/media_attic** - all the old versions of your media\\
+**conf** - the configuration settings\\
+
+You can exclude the cache, index, locks, and tmp directories.
+
 ===Specificities of the Debian package===
 
   * DokuWiki root is /usr/share/dokuwiki,

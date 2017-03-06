@@ -1,8 +1,8 @@
 =====VIM Tips=====
-**:saveas**
-
-To save the current file as a new file and switch to that file use the ex command
-:saveas filename
+|**:saveas**|To save the current file as a new file and switch to that file. Ex: '':saveas newfile.txt''|
+|**:set paste**|Then enter insert mode. You will see the status bar say insert (paste). Paste your code |
+|**:set nopaste**| Exit out of PASTE mode|
+|**:nohl**| Remove search highlighting|
 
 ===Troubleshooting===
 If the plugins are not installing the minimal version is installed

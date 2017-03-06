@@ -22,3 +22,8 @@
 1488452828	80.50.231.18	e	ansible:ansible	tadone	[Ansible] 		193
 1488470399	80.50.231.18	e	ansible:ansible	tadone			682
 1488470542	80.50.231.18	E	ansible:ansible	tadone			149
+1488294172	127.0.0.1	E	wiki:dokuwiki_install		external edit		161
+1488787902	89.70.32.11	E	wiki:dokuwiki_install	tadone			564
+1488294172	127.0.0.1	E	linux:vim		external edit		1054
+1488788103	89.70.32.11	e	linux:vim	tadone			155
+1488788327	89.70.32.11	e	linux:vim	tadone			28
