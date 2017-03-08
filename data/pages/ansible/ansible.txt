@@ -59,4 +59,6 @@ tasks:
           
 ====Facts (System Information)====
 Gather facts (info) about remote host:
-<sxh bash>ansible hostname.example.com -m setup</sxh>          
+<sxh bash>ansible hostname.example.com -m setup</sxh>
+
+====Roles====
