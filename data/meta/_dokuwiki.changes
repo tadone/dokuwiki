@@ -1,18 +1,10 @@
-1488295211	127.0.0.1	E	start		external edit		266
-1488295211	195.205.254.66	e	start	tadone	ToDo checked: MacOS setup script		0
-1488295421	195.205.254.66	C	linux:test	tadone	created		0
 1488295540	195.205.254.66	C	test	tadone	created		4
-1488294172	127.0.0.1	E	linux:dotfiles		external edit		1444
 1488296373	195.205.254.66	E	linux:dotfiles	tadone			-2
-1488294172	127.0.0.1	E	linux:administration		external edit		2715
 1488296445	195.205.254.66	E	linux:administration	tadone			-6
 1488297639	195.205.254.66	E	linux:administration	tadone			2
-1488294172	127.0.0.1	E	other:cheatsheet		external edit		1174
 1488298337	195.205.254.66	E	other:cheatsheet	tadone			38
 1488353080	195.205.254.66	E	linux:administration	tadone			-24
-1488294172	127.0.0.1	E	linux:linux		external edit		2167
 1488359656	195.205.254.66	E	linux:linux	tadone	[Extra Packages] 		39
-1488294172	127.0.0.1	E	sidebar		external edit		827
 1488364276	195.205.254.66	E	sidebar	tadone			61
 1488365720	195.205.254.66	C	ansible:ansible	tadone	created		1084
 1488377332	195.205.254.66	E	ansible:ansible	tadone			3
@@ -22,9 +14,7 @@
 1488452828	80.50.231.18	e	ansible:ansible	tadone	[Ansible] 		193
 1488470399	80.50.231.18	e	ansible:ansible	tadone			682
 1488470542	80.50.231.18	E	ansible:ansible	tadone			149
-1488294172	127.0.0.1	E	wiki:dokuwiki_install		external edit		161
 1488787902	89.70.32.11	E	wiki:dokuwiki_install	tadone			564
-1488294172	127.0.0.1	E	linux:vim		external edit		1054
 1488788103	89.70.32.11	e	linux:vim	tadone			155
 1488788327	89.70.32.11	e	linux:vim	tadone			28
 1488971521	89.70.32.11	e	ansible:ansible	tadone			6
