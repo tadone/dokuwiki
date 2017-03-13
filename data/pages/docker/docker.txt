@@ -1,0 +1,9 @@
+====Docker====
+
+<sxh bash>docker run <img> /bin/bash -c "command" # Run a command in a container</sxh>
+
+<sxh bash>
+docker commit <img_ID> <name>           # Takes the changes and creates new image called fridge
+docker save -o /tmp/<name>.tar <img_ID> # Save image to a file (tar)
+docker load -i /tmp/<name>.tar          # Import image
+</sxh>

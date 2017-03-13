@@ -18,3 +18,10 @@
 1488788103	89.70.32.11	e	linux:vim	tadone			155
 1488788327	89.70.32.11	e	linux:vim	tadone			28
 1488971521	89.70.32.11	e	ansible:ansible	tadone			6
+1489410825	89.70.32.11	C	docker:docker	tadone	created		14
+1489413092	89.70.32.11	E	docker:docker	tadone			88
+1489413265	89.70.32.11	E	docker:docker	tadone			88
+1489413436	89.70.32.11	e	docker:docker	tadone			69
+1489413602	89.70.32.11	e	docker:docker	tadone			70
+1489413629	89.70.32.11	e	docker:docker	tadone			1
+1489413662	89.70.32.11	e	docker:docker	tadone			11
