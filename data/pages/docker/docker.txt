@@ -23,7 +23,12 @@ docker load -i /tmp/<name>.tar          # Import image
 |docker stop <img_ID> | Gracefully stop a container (SIGTERM to PID1)|
 |docker start <img_ID>| Start docker container|
 |docker restart <img_ID>| Restart container|
-|docker attach <img_ID>| Attach to a PID1 inside container ''AVOID''|
+|docker attach <img_ID>| Attach to a PID1 inside container ''AVOID'' Use docker exec instead|
+|docker ''exec'' -it <img_ID> /bin/bash| Enter the container using Bash|
 |docker rm <img_ID>| Delete a container (Can't be running)|
 |docker ps <img_ID>| Process list from a container|
 |docker logs ID/Name| Shows logs for a container|
+|docker inspect <ID>| Low level info about a container|
+
+===Dockerfile===
+Allows for creating images using the plain text Dockerfile.
