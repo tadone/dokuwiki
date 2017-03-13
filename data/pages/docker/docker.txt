@@ -1,4 +1,8 @@
 ====Docker====
+  * One process per container (usually). Containers exists while processes inside of them are running. Once they stop the container will stop as well.
+  * Only top layer is writable using the Union Mounts
+  * **PID1** (ProcessID1 inside a container) is usually an application process and not Init
+  * Outside of a container the same process will be seen by host as different ProcessID
 
 <sxh bash>docker run <img> /bin/bash -c "command" # Run a command in a container</sxh>
 
@@ -7,3 +11,19 @@ docker commit <img_ID> <name>           # Takes the changes and creates new imag
 docker save -o /tmp/<name>.tar <img_ID> # Save image to a file (tar)
 docker load -i /tmp/<name>.tar          # Import image
 </sxh>
+
+^Command ^What it does |
+|-d| Detached, in the background|
+|-it| Interactive with pseudo terminal|
+
+===Container Management===
+''Ctr+P+Q'' - Get back to terminal of docker host without terminating container
+
+^Options ^What it does |
+|docker stop <img_ID> | Gracefully stop a container (SIGTERM to PID1)|
+|docker start <img_ID>| Start docker container|
+|docker restart <img_ID>| Restart container|
+|docker attach <img_ID>| Attach to a PID1 inside container ''AVOID''|
+|docker rm <img_ID>| Delete a container (Can't be running)|
+|docker ps <img_ID>| Process list from a container|
+|docker logs ID/Name| Shows logs for a container|
