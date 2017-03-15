@@ -16,8 +16,10 @@ docker load -i /tmp/<name>.tar          # Import image
 |-d| Detached, in the background|
 |-it| Interactive with pseudo terminal|
 |-p| Specify port(s) Ex. ''-p 80:3000'' maps port 80 of host to 3000 in a container|
+|--name| Name for the container|
+|-v| Volume|
 
-===Container Management===
+====Container Management====
 ''Ctr+P+Q'' - Get back to terminal of docker host without terminating container
 
 ^Options ^What it does |
@@ -32,17 +34,19 @@ docker load -i /tmp/<name>.tar          # Import image
 |docker inspect <ID>| Low level info about a container|
 |docker history <ID>| Lists "events", things that happened in a container|
 
-===Dockerfile===
+====Dockerfile====
 Allows for creating images using the plain text Dockerfile.
 
 ^Command ^Parameter|
 |#|Comment|
 |FROM| Base Image to base the container on|
 |RUN| Build-time actions (apt-get -y instal, yum update, etc). Each RUN command will create layer in an image (use && to avoid)|
-|CMD| Run-time command. Shell or Exec form. Will be overwritten by a command at the end of docker run <command> ''Exec'' form (preferred): **["echo","Hello World"]** Variables will not be expanded|
+|CMD| Run-time command. Shell or Exec form. Will be overwritten by a command at the end of docker run <command>\\ ** - Exec Form:** ["echo","Hello World"] -- does not expand variables\\ **- Shell Form:** uses /bin/bash -c|
+|ENV| Variables. Ex: **ENV var1=value**|
+|VOLUME| Specify volume inside a container. Ex: /data ''doesn't allow host mount''|
 |ENTRYPOINT| Run-time command. Can't be overwritten by docker run commands. Those commands will be interpreted as arguments to ENTRYPOINT instructions.|
 
-===Docker Registry===
+====Docker Registry====
 You need to tag your image correctly first with your registryhost:
 
 <sxh>docker tag [OPTIONS] IMAGE[:TAG] [REGISTRYHOST/][USERNAME/]NAME[:TAG]</sxh>
@@ -53,3 +57,18 @@ Example:
 docker tag myImage myRegistry.com/myImage
 docker push myRegistry.com/myImage
 </sxh>
+
+====Volumes====
+**-v <volume_location>** will specify Volume inside a container. Docker will create that volume when creating container if it doesn't exist. If it does exist unix mount rules apply.
+
+Ex: **-v /container_volume** or **-v /data** or **/test-volume**
+
+To run another container with the same volume mounted use ''--volumes-from=''<container>:
+<sxh>docker run --volumes-from=<container> <another_container></sxh>
+
+To specify volume on a docker host for the container to use ''-v /host_vol:/container_vol'':
+<sxh>docker run -v /host_data:/container_data</sxh>
+
+Delete volume with **docker rm -v <container>**. Without the **-v** option the volume doesn't get deleted.
+
+====Docker Networking====
