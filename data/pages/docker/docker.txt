@@ -15,6 +15,7 @@ docker load -i /tmp/<name>.tar          # Import image
 ^Command ^What it does |
 |-d| Detached, in the background|
 |-it| Interactive with pseudo terminal|
+|-p| Specify port(s) Ex. ''-p 80:3000'' maps port 80 of host to 3000 in a container|
 
 ===Container Management===
 ''Ctr+P+Q'' - Get back to terminal of docker host without terminating container
@@ -29,6 +30,19 @@ docker load -i /tmp/<name>.tar          # Import image
 |docker ps <img_ID>| Process list from a container|
 |docker logs ID/Name| Shows logs for a container|
 |docker inspect <ID>| Low level info about a container|
+|docker history <ID>| Lists "events", things that happened in a container|
 
 ===Dockerfile===
 Allows for creating images using the plain text Dockerfile.
+
+===Docker Registry===
+You need to tag your image correctly first with your registryhost:
+
+<sxh>docker tag [OPTIONS] IMAGE[:TAG] [REGISTRYHOST/][USERNAME/]NAME[:TAG]</sxh>
+Then docker push using that same tag.
+<sxh bash>docker push NAME[:TAG]</sxh>
+Example:
+<sxh bash>
+docker tag myImage myRegistry.com/myImage
+docker push myRegistry.com/myImage
+</sxh>
