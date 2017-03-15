@@ -28,12 +28,19 @@ docker load -i /tmp/<name>.tar          # Import image
 |docker ''exec'' -it <img_ID> /bin/bash| Enter the container using Bash|
 |docker rm <img_ID>| Delete a container (Can't be running)|
 |docker ps <img_ID>| Process list from a container|
-|docker logs ID/Name| Shows logs for a container|
+|docker logs ID/Name| Shows logs for a container. Follow a log with: **docker logs -f <ID>**|
 |docker inspect <ID>| Low level info about a container|
 |docker history <ID>| Lists "events", things that happened in a container|
 
 ===Dockerfile===
 Allows for creating images using the plain text Dockerfile.
+
+^Command ^Parameter|
+|#|Comment|
+|FROM| Base Image to base the container on|
+|RUN| Build-time actions (apt-get -y instal, yum update, etc). Each RUN command will create layer in an image (use && to avoid)|
+|CMD| Run-time command. Shell or Exec form. Will be overwritten by a command at the end of docker run <command> ''Exec'' form (preferred): **["echo","Hello World"]** Variables will not be expanded|
+|ENTRYPOINT| Run-time command. Can't be overwritten by docker run commands. Those commands will be interpreted as arguments to ENTRYPOINT instructions.|
 
 ===Docker Registry===
 You need to tag your image correctly first with your registryhost:
