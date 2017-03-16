@@ -16,6 +16,7 @@ docker load -i /tmp/<name>.tar          # Import image
 |-d| Detached, in the background|
 |-it| Interactive with pseudo terminal|
 |-p| Specify port(s) Ex. ''-p 80:3000'' maps port 80 of host to 3000 in a container|
+|-P| Random docker host port assignment with ports from Dockerfile|
 |--name| Name for the container|
 |-v| Volume|
 
@@ -33,6 +34,7 @@ docker load -i /tmp/<name>.tar          # Import image
 |docker logs ID/Name| Shows logs for a container. Follow a log with: **docker logs -f <ID>**|
 |docker inspect <ID>| Low level info about a container|
 |docker history <ID>| Lists "events", things that happened in a container|
+|docker port //container//| Port mapping|
 
 ====Dockerfile====
 Allows for creating images using the plain text Dockerfile.
@@ -41,10 +43,11 @@ Allows for creating images using the plain text Dockerfile.
 |#|Comment|
 |FROM| Base Image to base the container on|
 |RUN| Build-time actions (apt-get -y instal, yum update, etc). Each RUN command will create layer in an image (use && to avoid)|
-|CMD| Run-time command. Shell or Exec form. Will be overwritten by a command at the end of docker run <command>\\ ** - Exec Form:** ["echo","Hello World"] -- does not expand variables\\ **- Shell Form:** uses /bin/bash -c|
 |ENV| Variables. Ex: **ENV var1=value**|
 |VOLUME| Specify volume inside a container. Ex: /data ''doesn't allow host mount''|
+|EXPOSE| Expose port(s) to docker host|
 |ENTRYPOINT| Run-time command. Can't be overwritten by docker run commands. Those commands will be interpreted as arguments to ENTRYPOINT instructions.|
+|CMD| Run-time command. Shell or Exec form. Will be overwritten by a command at the end of docker run <command>\\ ** - Exec Form:** ["echo","Hello World"] -- does not expand variables\\ **- Shell Form:** uses /bin/bash -c|
 
 ====Docker Registry====
 You need to tag your image correctly first with your registryhost:
@@ -72,3 +75,15 @@ To specify volume on a docker host for the container to use ''-v /host_vol:/cont
 Delete volume with **docker rm -v <container>**. Without the **-v** option the volume doesn't get deleted.
 
 ====Docker Networking====
+''docker0'' virtual bridge interface. 
+
+Each new container gets one interface automatically attached to the ''docker0'' virtual bridge.
+
+Each container uses its own hosts and resolv.conf files located in: **/var/lib/docker/<container_id>/**
+
+Expose ports from within a container using **EXPOSE** parameter in Dockerfile and then specify port mapping using ''-p Host_Port:Container_Port''
+<sxh bash>docker run -d -p 3000:80 <base_img> # Map port 80 in a container to port 3000 in a docker host
+docker run -d -p 192.168.56.50:300:80 <base_img> # Map port 80 but only to IP:PORT on docker host</sxh>
+
+Expose ports based on EXPOSE parameter in Dockerfile and random high port assignment on docker host using ''-P''
+<sxh>docker run -d -P --name=<name> <base_img></sxh>
