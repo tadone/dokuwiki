@@ -49,7 +49,7 @@ Allows for creating images using the plain text Dockerfile.
 |ENTRYPOINT| Run-time command. Can't be overwritten by docker run commands. Those commands will be interpreted as arguments to ENTRYPOINT instructions.|
 |CMD| Run-time command. Shell or Exec form. Will be overwritten by a command at the end of docker run <command>\\ ** - Exec Form:** ["echo","Hello World"] -- does not expand variables\\ **- Shell Form:** uses /bin/bash -c|
 
-====Docker Registry====
+====Registry====
 You need to tag your image correctly first with your registryhost:
 
 <sxh>docker tag [OPTIONS] IMAGE[:TAG] [REGISTRYHOST/][USERNAME/]NAME[:TAG]</sxh>
@@ -74,7 +74,7 @@ To specify volume on a docker host for the container to use ''-v /host_vol:/cont
 
 Delete volume with **docker rm -v <container>**. Without the **-v** option the volume doesn't get deleted.
 
-====Docker Networking====
+====Networking====
 ''docker0'' virtual bridge interface. 
 
 Each new container gets one interface automatically attached to the ''docker0'' virtual bridge.
@@ -87,3 +87,9 @@ docker run -d -p 192.168.56.50:300:80 <base_img> # Map port 80 but only to IP:PO
 
 Expose ports based on EXPOSE parameter in Dockerfile and random high port assignment on docker host using ''-P''
 <sxh>docker run -d -P --name=<name> <base_img></sxh>
+
+====Linking Containers====
+Use the ''--link='' option to link a container to another:
+<sxh bash>docker run -d --link=<source_container>:<alias> <base_img> # Alias can be same as source container</sxh>
+
+The linked container will have network information from the source saved as ENV variables.
