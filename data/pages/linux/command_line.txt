@@ -1,5 +1,5 @@
 ==== Moving around on the command line ====
-<code>
+<sxh bash>
 ctrl-a  # Move to the start of line
 ctrl-e  # Move to end of a line
 
@@ -7,15 +7,29 @@ ctrl-k  # Remove (Cut) text after the cursor
 ctrl-y  # Yank text (Copy)
 
 ctrl-r  # Search previous command from history
-</code>
+</sxh>
 
 While ''!$'' is not a keybinding, you end up with the same result. But in this case, the shell will only substitute ''!$'' with the last argument of the previous command only after you have pressed enter:
-<code bash>
+<sxh bash>
 larso@goethe:~$ mkdir /var/tmp/foo
 larso@goethe:~$ cd !$
 cd /var/tmp/foo
-larso@goethe:/var/tmp/foo$ </code>
+larso@goethe:/var/tmp/foo$ </sxh>
 
+====Brace Expansion====
+<sxh bash>echo foo{1,2,3}.txt # Output: foo1.txt foo2.txt foo3.txt</sxh>
+
+Some examples:
+<sxh bash>
+### I am using echo for demo purpose only ####
+echo file.txt{,.bak}
+echo file-{a..d}.txt
+echo mkdir -p /apache-jail/{usr,bin,lib64,dev}
+echo cp httpd.conf{,.backup}
+echo mv delta.{txt,doc}
+</sxh>
+Quickly create backup file:
+<sxh bash>cp -v file1.txt{,.bak} # Output: file1.txt -> file1.txt.bak</sxh>
 
 ==== Copy file to multiple directories using simple loop ====
 <code bash>for dest in /dir1/ /dir2/ ; do cp -v file "$dest" ; done
