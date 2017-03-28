@@ -1,0 +1,7 @@
+====Snippets====
+<sxh bash>
+# list every file bigger than 20000 blocks (10MB if you have 512-byte blocks)
+find / -type f -size +20000 -print
+# find every file not accessed for the last week or more
+find / -type f -atime +7 -print
+</sxh> 

@@ -1,4 +1,5 @@
   * [[:start|Home]]
+  * [[other:snippets|Snippets]]
   * [[linux:Linux|Linux]]
     * [[linux:gnu_tools|GNU Tools]]
     * [[linux:extra_tools|Extra Tools]]
