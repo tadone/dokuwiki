@@ -1,0 +1,7 @@
+====Shell (BASH)====
+
+Check Shell Variables (Enviroment Variables):
+''set'' or ''env'' or ''printenv''
+
+Shell Options:
+shopt

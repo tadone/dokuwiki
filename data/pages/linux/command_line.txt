@@ -30,6 +30,18 @@ echo mv delta.{txt,doc}
 </sxh>
 Quickly create backup file:
 <sxh bash>cp -v file1.txt{,.bak} # Output: file1.txt -> file1.txt.bak</sxh>
+====SCP - Secure Copy Over SSH====
+Copy the file "foobar.txt" from the local host to a remote host:
+<sxh bash>scp foobar.txt your_username@remotehost.edu:/some/remote/directory</sxh> 
+Copy the file "foobar.txt" from a remote host to the local host:
+<sxh bash>scp your_username@remotehost.edu:foobar.txt /some/local/directory</sxh>
+Copy the directory "foo" from the local host to a remote host's directory "bar":
+<sxh bash>scp -r foo your_username@remotehost.edu:/some/remote/directory/bar</sxh>
+Copy the file "foobar.txt" from remote host "rh1.edu" to remote host "rh2.edu":
+<sxh bash>scp your_username@rh1.edu:/some/remote/directory/foobar.txt \
+your_username@rh2.edu:/some/remote/directory/ </sxh>
+Copy the file "foobar.txt" from the local host to a remote host using port 2264:
+<sxh bash>scp -P 2264 foobar.txt your_username@remotehost.edu:/some/remote/directory</sxh>
 
 ==== Copy file to multiple directories using simple loop ====
 <code bash>for dest in /dir1/ /dir2/ ; do cp -v file "$dest" ; done
