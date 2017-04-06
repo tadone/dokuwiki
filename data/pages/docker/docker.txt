@@ -39,16 +39,24 @@ docker load -i /tmp/<name>.tar          # Import image
 ====Dockerfile====
 Allows for creating images using the plain text Dockerfile.
 
-^Command ^Parameter|
+^Command ^Parameter ^Example|
 |#|Comment|
-|FROM| Base Image to base the container on|
-|RUN| Build-time actions (apt-get -y instal, yum update, etc). Each RUN command will create layer in an image (use && to avoid)|
-|ENV| Variables. Ex: **ENV var1=value**|
+|LABEL|**LABEL** com.example.version=''"0.0.1-beta"'' com.example.release-date=''"2015-02-12"''||
+|FROM| Base Image to base the container on|**FROM busybox**|
+|COPY|Copy from host/container to container(COPY is preferable over ADD)|COPY requirements.txt /tmp/|
+|RUN| Build-time actions. Each RUN command will create layer in an image (use && to avoid)|RUN apt-get update && apt-get install|
+|ENV| Variables.|**ENV var1=value**|
 |VOLUME| Specify volume inside a container. Ex: /data ''doesn't allow host mount''|
-|EXPOSE| Expose port(s) to docker host|
+|EXPOSE| Expose port(s) to docker host|EXPOSE 80 443|
 |ENTRYPOINT| Run-time command. Can't be overwritten by docker run commands. Those commands will be interpreted as arguments to ENTRYPOINT instructions.|
-|CMD| Run-time command. Shell or Exec form. Will be overwritten by a command at the end of docker run <command>\\ ** - Exec Form:** ["echo","Hello World"] -- does not expand variables\\ **- Shell Form:** uses /bin/bash -c|
+|CMD| Run-time command. Shell or Exec form. Will be overwritten by a command at the end of docker run <command>\\ ** - Exec Form:** ["echo","Hello World"] -- does not expand variables\\ **- Shell Form:** uses /bin/bash -c|CMD echo "Hello World"|
 
+**NOTE**
+COPY obeys the following rules:
+
+The ''<src>'' path must be inside the context of the build; you cannot **COPY** ../something /something, because the first step of a docker build is to send the context directory (and subdirectories) to the docker daemon.
+
+If ''<src>'' is a directory, the entire contents of the directory are copied, including filesystem metadata.
 ====Registry====
 You need to tag your image correctly first with your registryhost:
 

@@ -42,3 +42,5 @@
 1489669763	89.70.32.11	e	docker:docker	tadone			193
 1489669803	89.70.32.11	e	docker:docker	tadone	[Linking Containers] 		-5
 1489669884	89.70.32.11	e	docker:docker	tadone	[Linking Containers] 		92
+1491485478	140.101.31.243	E	docker:docker	tadone	[Dockerfile] 		82
+1491486246	140.101.31.243	E	docker:docker	tadone	[Dockerfile] 		552
