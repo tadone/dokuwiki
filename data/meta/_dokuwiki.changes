@@ -18,3 +18,5 @@
 1490806346	89.70.32.11	C	linux:shell	tadone	created		124
 1491485478	140.101.31.243	E	docker:docker	tadone	[Dockerfile] 		82
 1491486246	140.101.31.243	E	docker:docker	tadone	[Dockerfile] 		552
+1489410114	127.0.0.1	E	other:git		external edit		765
+1492003325	140.101.31.243	E	other:git	tadone			1709
