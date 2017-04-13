@@ -1,3 +1,8 @@
+===GIT Reset===
+If changes have not been pushed upstream, use this command to reset files to commit before the last one (''HEAD-1''):
+<sxh>git reset HEAD~1</sxh>
+If changes have already been pushed to Github/BitBucket than use this command to revert/remove the last one commit/change and then you can push:
+<sxh>git revert HEAD</sxh>
 **origin** -- is the repository that files were cloned from\\
 **master** -- it's the master branch
 
