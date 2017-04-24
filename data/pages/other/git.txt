@@ -1,12 +1,12 @@
-===GIT Reset===
-If changes have not been pushed upstream, use this command to reset files to commit before the last one (''HEAD-1''):
+====GIT Reset====
+If changes have not been pushed upstream, use this command to reset files to commit before the last one (''HEAD~1''):
 <sxh>git reset HEAD~1</sxh>
 If changes have already been pushed to Github/BitBucket than use this command to revert/remove the last one commit/change and then you can push:
 <sxh>git revert HEAD</sxh>
 **origin** -- is the repository that files were cloned from\\
 **master** -- it's the master branch
 
-===Push changes to github repo===
+====Git Push====
 <code bash>
 git push  <REMOTENAME> <BRANCHNAME> 
 git push origin master # Push changes from local master to remote origin</code>
@@ -62,6 +62,7 @@ Now, if you look at your local branches, this is what you'll see:
 $ git branch
 * experimental
   master</sxh>
+===Git Remote===
 You can actually track more than one remote repository using git remote.
 <sxh bash>
 $ git remote add win32 git://example.com/users/joe/myproject-win32-port
@@ -73,6 +74,23 @@ $ git branch -a
   remotes/origin/experimental
   remotes/win32/master
   remotes/win32/new-widgets</sxh>
-At this point, things are getting pretty crazy, so run gitk to see what's going on:
-<sxh>
-$ gitk --all &</sxh>
+
+====Advanced====
+Checkout single file from another branch to this one:
+<sxh bash>
+git checkout master               # first get back to master
+git checkout experiment -- app.js # then copy the version of app.js 
+                                  # from branch "experiment"
+</sxh>
+''You will only get the most recent state of app.js''
+
+View the file from another branch:
+<sxh bash>git show experiment:path/to/relative/app.js</sxh>
+
+====Git Delete====
+To delete the local branch use:
+<sxh>git branch -d <branch_name></sxh>
+The -d option is an alias for --delete, which only deletes the branch if it has already been fully merged in its upstream branch. You could also use -D, which is an alias for --delete --force, which deletes the branch "irrespective of its merged status."
+<sxh>git push origin --delete <branch_name></sxh>
+Then you should execute this on other machines
+<sxh>git fetch --all --prune</sxh>
