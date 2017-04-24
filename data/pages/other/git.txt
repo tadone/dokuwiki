@@ -6,6 +6,11 @@ If changes have already been pushed to Github/BitBucket than use this command to
 **origin** -- is the repository that files were cloned from\\
 **master** -- it's the master branch
 
+''!!!GIT RESET HARD!!!''
+<sxh bash>
+git fetch --all                       # Fetch all changes first
+git reset --hard origin/<branch_name> # Reset files to the one from the branch!
+</sxh>
 ====Git Push====
 <code bash>
 git push  <REMOTENAME> <BRANCHNAME> 
