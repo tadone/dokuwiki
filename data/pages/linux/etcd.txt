@@ -1,3 +1,6 @@
+=====CoreOS=====
+Uses cloud-config file
+
 =====ETCD=====
 Key Value pairs:
 <sxh bash>
@@ -34,4 +37,13 @@ Check the status of the hello.service running on the cluster:
 <sxh bash>
 fleetctl status hello.service     # Check the status of hello.service
 fleetctl journal -f hello.service # View the logs for hello.service
+</sxh>
+The ''fleetctl start hello.service'' command will **submit, load and start** the hello.service in one go.\\ 
+To remove the service issue a ''fleetctl destroy hello.service''
+
+===Use Fleet Remotely===
+<sxh bash>
+fleetctl --tunnel IP_ADDRESS:PORT list-machines  # Use fleetctl remotely using --tunnel
+export FLEETCTL_TUNNEL="127.0.0.1:2222"          # Export the FLEETCTL_TUNNEL variable to bypass --tunnel
+fleetctl ssh hello.service                       # SSH into machine that is running the hello.service
 </sxh>
