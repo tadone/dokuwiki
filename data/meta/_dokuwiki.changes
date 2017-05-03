@@ -18,3 +18,8 @@
 1493024651	140.101.31.244	E	other:git	tadone			323
 1493024936	140.101.31.244	E	other:git	tadone			477
 1493029300	140.101.31.244	E	other:git	tadone			187
+1493832459	89.64.19.191	C	linux:etcd	tadone	created		31
+1493832815	89.64.19.191	e	linux:etcd	tadone			152
+1493833237	89.64.19.191	e	linux:etcd	tadone			442
+1493834104	89.64.19.191	e	linux:etcd	tadone			102
+1493835129	89.64.19.191	e	linux:etcd	tadone	[Fleet] 		785

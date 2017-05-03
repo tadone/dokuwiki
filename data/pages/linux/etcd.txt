@@ -1,0 +1,37 @@
+=====ETCD=====
+Key Value pairs:
+<sxh bash>
+etcdctl set /name Jason   # Sets the value
+etcdctl get /name         # Will print Jason
+etcdctl rm /name          # Removes the value
+</sxh>
+
+Create (virtual) directories for configuration hierarchies:
+<sxh bash>
+etcdctl mkdir /jason-service                          # Create directory to store key/value pairs
+etcdctl set /jason-service/service-abc localhost:8081 # Set value inside directory
+etcdctl ls /jason-service                             # List values inside a directory
+etcdctl watch --recursive /jason-service              # Watches for changes inside a directory
+</sxh>
+
+=====Fleet=====
+Control a cluster as a single host.
+
+There are ''standard'' and ''global'' units.
+<sxh bash>
+fleetctl list-machines      # Lists machines in a cluster
+fleetctl list-units         # Lists units deployed to the cluster
+</sxh>
+After creating an unit files it can be loaded via fleet
+<sxh>
+fleetctl submit hello.service  # Submit hello.service to fleet from current working dir
+fleetctl list-unit-files       # List unit files
+fleetctl cat hello.service     # Views the contents of hello.service unit file
+fleetctl load hello.service    # Schedules the unit to run on a machine
+fleetctl start hello.service   # Starts the service via the unit file
+</sxh>
+Check the status of the hello.service running on the cluster:
+<sxh bash>
+fleetctl status hello.service     # Check the status of hello.service
+fleetctl journal -f hello.service # View the logs for hello.service
+</sxh>
