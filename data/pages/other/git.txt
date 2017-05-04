@@ -1,3 +1,6 @@
+====GIT Pull====
+In the simplest terms, **git pull** does a **git fetch** followed by a **git merge**.
+
 ====GIT Reset====
 If changes have not been pushed upstream, use this command to reset files to commit before the last one (''HEAD~1''):
 <sxh>git reset HEAD~1</sxh>
