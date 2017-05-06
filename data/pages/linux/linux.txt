@@ -50,3 +50,4 @@ To check number of banned IPs
 **Glances** -- System monitoring tool, similar to Htop [[https://nicolargo.github.io/glances/|Glances]]\\
 **colordiff** -- Diff tool\\
 **lnav** -- Parse and display logs
+**nethogs** -- Bandwidth moniotring tool

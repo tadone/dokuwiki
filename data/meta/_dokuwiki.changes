@@ -1,7 +1,3 @@
-1491485478	140.101.31.243	E	docker:docker	tadone	[Dockerfile] 		82
-1491486246	140.101.31.243	E	docker:docker	tadone	[Dockerfile] 		552
-1492003325	140.101.31.243	E	other:git	tadone			1709
-1492006724	140.101.31.243	E	other:git	tadone			102
 1492006742	140.101.31.243	e	other:git	tadone			12
 1492006759	140.101.31.243	e	other:git	tadone			-114
 1492006819	140.101.31.243	e	linux:ssh	tadone			129
@@ -22,3 +18,5 @@
 1493910960	140.101.31.246	e	docker:docker	tadone			238
 1493911464	140.101.31.246	E	other:git	tadone			100
 1493911485	140.101.31.246	e	other:git	tadone			4
+1489410114	127.0.0.1	E	linux:linux		external edit		0
+1494061428	89.64.19.191	e	linux:linux	tadone	[Extra Packages] 		41
