@@ -15,3 +15,8 @@
 | ''docker volume ls -qf dangling=true''  | List dangling volumes       | Ctrl-a ''Spacebar'' | Select text in copy mode |
 | Ctrl-a '']'' | Paste selected text || 
 |Tmux kill-session -t ''session_ID'' | Kill Tmux session by session ID||
+
+===IRC Basics===
+^ Command        ^ Function       ^ Command          ^ Function          ^ 
+|''/connect'' irc.freenode.net| Connect to FreeNode IRC Server|''/jon'' ##devops| Join ##devops channel|
+|''/nick'' tadone| Set nickname to tadone|''/msg nickserv identify'' [password]| Identify the nickname|
