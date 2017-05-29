@@ -1,16 +1,23 @@
-=====Docker Essentials=====
+=====Essential Commands=====
+Build the image and push and push it to registry:
 <sxh bash>
-docker build -t REGISTRY/IMAGE:TAG .
-#EX: docker build -t docker.mot-solutions.com/msi/sessionmanager:0.0.17 .
+# docker build -t Registry/Image:tag .
+docker build -f Dockerfile_test -t docker.mot-solutions.com/msi/sessionmanager:0.0.17 .
+docker push docker.mot-solutions.com/msi/sessionmanager:0.0.17
+</sxh>
+Make changes in a container, commit those changes in the image and push to registry:
+<sxh>
 docker commit -m "message" -a "author" IMAGE_ID REGISTRY/NAME:TAG
 docker tag IMAGE_ID REGISTRY/IMAGE:TAG
 docker push REGISTRY/IMAGE:TAG
 </sxh> 
+Copy files from/to a container:
 <sxh bash>
 docker cp foo.txt mycontainer:/foo.txt # Copy from host to container
 docker cp mycontainer:/foo.txt foo.txt # Copy form container to host
 </sxh>
-====Docker====
+Quit/Detach out of the docker container: **Ctrl-p, Ctrl-q**
+=====Overview=====
   * One process per container (usually). Containers exists while processes inside of them are running. Once they stop the container will stop as well.
   * Only top layer is writable using the Union Mounts
   * **PID1** (ProcessID1 inside a container) is usually an application process and not Init

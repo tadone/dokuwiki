@@ -1,0 +1,7 @@
+base     ghw
+author   Jonathan Cox
+email    cbjcaesar@gmail.com
+date     2017-03-14
+name     Great HealthWorks Template
+desc     Great HealthWorks's default wiki template since 2017
+url      http://thedevknight.com/dokuwiki
