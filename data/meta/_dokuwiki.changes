@@ -1,8 +1,3 @@
-1492071636	140.101.31.243	e	other:git	tadone			263
-1492594798	140.101.31.243	e	sidebar	tadone			30
-1493024651	140.101.31.244	E	other:git	tadone			323
-1493024936	140.101.31.244	E	other:git	tadone			477
-1493029300	140.101.31.244	E	other:git	tadone			187
 1493832459	89.64.19.191	C	linux:etcd	tadone	created		31
 1493832815	89.64.19.191	e	linux:etcd	tadone			152
 1493833237	89.64.19.191	e	linux:etcd	tadone			442
@@ -21,6 +16,5 @@
 1496069983	140.101.31.246	e	docker:docker	tadone	[Docker Essentials] 		259
 1496070252	140.101.31.246	e	docker:docker	tadone	[Docker Essentials] 		60
 1496070385	140.101.31.246	e	docker:docker	tadone			5
-1489410114	127.0.0.1	E	start		external edit		0
 1496128740	140.101.31.246	e	start	tadone	ToDo checked: Copy chrome extensions from work pc		19
 1496128744	140.101.31.246	e	start	tadone	ToDo checked: Copy files from work pc		19
