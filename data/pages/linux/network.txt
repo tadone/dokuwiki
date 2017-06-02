@@ -1,0 +1,8 @@
+====Network Tools====
+
+<sxh bash>
+netstat -tulpn                      # Find services listening
+netstat -tulpn | grep :80           # Find services listening on a port 80
+fuser 7000/tcp                      # Find out the processes PID that opened tcp port 7000
+lsof -i -n | egrep 'COMMAND|LISTEN' # Lsof
+</sxh>

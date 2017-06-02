@@ -18,3 +18,9 @@
 1496070385	140.101.31.246	e	docker:docker	tadone			5
 1496128740	140.101.31.246	e	start	tadone	ToDo checked: Copy chrome extensions from work pc		19
 1496128744	140.101.31.246	e	start	tadone	ToDo checked: Copy files from work pc		19
+1489410114	127.0.0.1	E	linux:systemd		external edit		1311
+1496402970	140.101.31.246	E	linux:systemd	tadone			1489
+1496403255	140.101.31.246	C	linux:network	tadone	created		95
+1496403298	140.101.31.246	E	sidebar	tadone			-2
+1496403489	140.101.31.246	E	linux:network	tadone			158
+1496403700	140.101.31.246	e	linux:network	tadone			58

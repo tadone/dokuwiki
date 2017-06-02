@@ -9,7 +9,7 @@
     * [[linux:basics|Basics]]
     * [[linux:users|Users]]
     * [[linux:ssh|SSH]]
-    * [[linux:lockfile|Lockfile]]
+    * [[linux:network|Network]]
     * [[linux:dotfiles|Dotfiles]]
     * [[linux:mail|Mail]]
     * [[linux:security|Secuirty]]

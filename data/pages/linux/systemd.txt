@@ -1,21 +1,59 @@
 ====== SystemD ======
+===Basic components of systemd===
+**SELinux**
+<sxh bash>
+sestatus               # Check weather SELinux is enforcing
+/etc/selinux/config    # Config for SELinux
+</sxh>
 
+**FirewallD**
+<sxh bash>
+systemctl status firewalld                   # FirewallD status
+firewall-cmd --list-all                      # List all settings for a default zone
+firewall-cmd --permanent --add-port=7090/tcp # Open port for default zone
+</sxh>
 
-==== Troubleshooting ====
+===Unit Files===
+All systemd unit files provided in ''/usr/lib/systemd/system/'' Do not edit these files; as you discovered, they will be replaced.
 
-Troubleshooting **SSHD** Service
+Instead, copy the files to ''/etc/systemd/system/'' Systemd will always override the packaged unit definitions with the admin supplied ones it finds there.
 
-Check output of 
-<code>systemctl status sshd.service</code>
+You can also create a directory like /etc/systemd/system/*unitname*.d/ and place configuration snippets there; it doesn't have to be a complete unit file that way, and it will only override the default configs in the specified way.
 
-Check journal messages from boot-up:
-<code>journalctl -b | grep sshd</code>
+<sxh bash>
+systemctl list-unit-files
+systemctl list-unit-files --type service
+systemctl list-unit-files --type target
 
-Check unit file: ''/etc/systemd/system/sshd.service''
+sudo systemctl [command] NAME.service
+</sxh>
+**Unit Files Example**
+<sxh bash>
+#[Unit]
+Description=OpenSSH server daemon
+Documentation=man:sshd(8) man:sshd_config(5)
+After=network.target sshd-keygen.service
+Wants=sshd-keygen.service
 
-View system messages:
-''systemctl'' after issuing 
-<code>systemctl start sshd.service</code>
+#[Service]
+EnvironmentFile=/etc/sysconfig/sshd
+ExecStart=/usr/sbin/sshd -D $OPTIONS
+ExecReload=/bin/kill -HUP $MAINPID
+KillMode=process
+Restart=on-failure
+RestartSec=42s
+
+#[Install]
+WantedBy=multi-user.target
+</sxh>
+
+**JournalD**
+<sxh bash>
+journalctl -fu NAME.service      # Follow unit logs for the service
+journalctl -b | grep sshd        # Find SSHD logs after last boot
+</sxh>
+
+DigitalOcean: [[https://www.digitalocean.com/community/tutorials/understanding-systemd-units-and-unit-files|Systemd Units and Unit Files]]
 
 ==== Extended Configuration ====
 **Automatic Restart**
