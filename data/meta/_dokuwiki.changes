@@ -1,8 +1,3 @@
-1493832459	89.64.19.191	C	linux:etcd	tadone	created		31
-1493832815	89.64.19.191	e	linux:etcd	tadone			152
-1493833237	89.64.19.191	e	linux:etcd	tadone			442
-1493834104	89.64.19.191	e	linux:etcd	tadone			102
-1493835129	89.64.19.191	e	linux:etcd	tadone	[Fleet] 		785
 1493836158	89.64.19.191	e	linux:etcd	tadone	[Fleet] 		513
 1493837147	89.64.19.191	e	linux:etcd	tadone			41
 1493909250	140.101.31.246	e	docker:docker	tadone			212
@@ -18,7 +13,6 @@
 1496070385	140.101.31.246	e	docker:docker	tadone			5
 1496128740	140.101.31.246	e	start	tadone	ToDo checked: Copy chrome extensions from work pc		19
 1496128744	140.101.31.246	e	start	tadone	ToDo checked: Copy files from work pc		19
-1489410114	127.0.0.1	E	linux:systemd		external edit		1311
 1496402970	140.101.31.246	E	linux:systemd	tadone			1489
 1496403255	140.101.31.246	C	linux:network	tadone	created		95
 1496403298	140.101.31.246	E	sidebar	tadone			-2
