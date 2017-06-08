@@ -9,7 +9,8 @@ SystemCTL to manage services:
 systemctl list-units -t service --state=active # Lists all services that are active
 systemctl list-unit-files -t service --state=enabled # Lists all services that are enabled
 </sxh>
-
+**So if you have a .deb file:**\\
+You can install it using ''sudo dpkg -i /path/to/deb/file'' followed by ''sudo apt-get install -f''
 ===Managing Services===
 A **service** can be several processes, e.g., httpd (web-service) or a database. Splitting a service into multiple processes is done for performance reasons.
 
