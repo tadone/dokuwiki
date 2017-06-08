@@ -2,8 +2,8 @@
 Build the image and push and push it to registry:
 <sxh bash>
 # docker build -t Registry/Image:tag .
-docker build -f Dockerfile_test -t docker.mot-solutions.com/msi/sessionmanager:0.0.17 .
-docker push docker.mot-solutions.com/msi/sessionmanager:0.0.17
+docker build -f Dockerfile_tests -t docker.mot-solutions.com/msi/sessionmanager-pytests .
+docker push docker.mot-solutions.com/msi/sessionmanager-pytests
 </sxh>
 Make changes in a container, commit those changes in the image and push to registry:
 <sxh>
