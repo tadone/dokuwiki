@@ -1,4 +1,3 @@
-1493909250	140.101.31.246	e	docker:docker	tadone			212
 1493910960	140.101.31.246	e	docker:docker	tadone			238
 1493911464	140.101.31.246	E	other:git	tadone			100
 1493911485	140.101.31.246	e	other:git	tadone			4
@@ -18,5 +17,4 @@
 1496403700	140.101.31.246	e	linux:network	tadone			58
 1496915773	140.101.31.246	E	linux:administration	tadone			133
 1496933810	150.130.102.84	e	docker:docker	tadone			3
-1489410114	127.0.0.1	E	bash:bash		external edit		1827
 1497548335	89.64.11.131	e	bash:bash	tadone			843
