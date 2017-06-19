@@ -1,32 +1,59 @@
-===== Bash Scripting =====
+==== Guides ====
+
+[[http://mywiki.wooledge.org/FullBashGuide]]
+
+[[http://wiki.bash-hackers.org/start]]
+
+[[http://ryanstutorials.net/bash-scripting-tutorial/bash-if-statements.php]]
+
+====IF Statements (Test)====
+
+The square brackets **[ ]** in the if statement are actually a reference to the command ''test''. This means that all of the operators that test allows may be used here as well. Look up the man page for test to see all of the possible operators (there are quite a few) but some of the more common ones are listed below.
+
+^ Operator	^ Description|
+|**! EXPRESSION**	|The EXPRESSION is false.|
+|**-n STRING**	|The length of STRING is greater than zero.|
+|**-z STRING**	|The lengh of STRING is zero (ie it is empty).|
+|**STRING1 = STRING2**	|STRING1 is equal to STRING2|
+|**STRING1 != STRING2**	|STRING1 is not equal to STRING2|
+|**INTEGER1 -eq INTEGER2**	|INTEGER1 is numerically equal to INTEGER2|
+|**INTEGER1 -gt INTEGER2**	|INTEGER1 is numerically greater than INTEGER2|
+|**INTEGER1 -lt INTEGER2**	|INTEGER1 is numerically less than INTEGER2|
+|**-d FILE**	|FILE exists and is a directory.|
+|**-e FILE**	|FILE exists.|
+|**-r FILE**	|FILE exists and the read permission is granted.|
+|**-s FILE**	|FILE exists and it's size is greater than zero (ie. it is not empty).|
+|**-w FILE**	|FILE exists and the write permission is granted.|
+|**-x FILE**	|FILE exists and the execute permission is granted.|
+=== Common Uses of Tests ===
 **Empty String Variable**
-<code bash>
+<sxh bash>
 if  [ -z "$VAR1" ];  # This will return true if a variable is unset or set to the empty string ("")
-# the inverse of -z is -n if [ -n "$VAR" ];
-</code>
-**Directory Exists**
-<code bash>  if  [ ! -d $DIR ]; # Test if directory $DIR (does not !) exists</code>
+if  [ -z "$VAR1" ];  # the inverse of -z
+if  [ ! -d "$DIR" ]; # Test if directory $DIR (does not !) exist(s)
+</sxh>
   
 === Assign the output to an array ===
 To assign the output to an array, you need to use a command substitution inside of an array assignment.
-
-<code>arr=($(find . -type f -not -name 'm11*' -not -name 'm12*' -not -name 'm10*' -name '*mp4' -execdir echo {} ";"))</code>
+<sxh bash>
+arr=($(find . -type f -not -name 'm11*' -not -name 'm12*' -not -name 'm10*' -name '*mp4' -execdir echo {} ";"))
+</sxh>
 
 The inner ''$()'' runs the command while the outer ''()'' causes the output to be an array. The problem with this is that it will not work with files containing spaces. To handle this, you can set IFS to ''\n''.
-<code>
+<sxh bash>
 IFS=$'\n'
 arr=($(find . -type f -not -name 'm11*' -not -name 'm12*' -not -name 'm10*' -name '*mp4' -execdir echo {} ";"))
 unset IFS
-</code>
+</sxh>
 
 === Arrays ===
 <sxh>array=("first item" "second item" "third" "item")</sxh>
 To print an array use:
-<code>printf "%s\n" "${array[@]}"</code>
+<sxh bash>printf "%s\n" "${array[@]}"</sxh>
 
 ==== Loops ====
 === For Loop ===
-<sxh>
+<sxh bash>
 #!/bin/bash
 # declare an array called array and define 3 values
 array=( one two three )
@@ -39,48 +66,34 @@ One line version:
 <sxh>for i in "${arr[@]}"; do echo $i; done</sxh>
 
 **Read from file**
-
-Put your urls in a file urls
-make a script ''ytlist.sh'' with
-<code bash>
+Put your urls in a file urls and make a script ''ytlist.sh'' with
+<sxh bash>
 while read url
 do
     youtube-dl ... "$url"
 done
-</code>
+</sxh>
 then ''ytlist.sh < urls''
 
 ==== String Manipulation and Expanding Variables ====
 
 For your ready references here are all your handy bash parameter substitution operators. Try them all; enhance your scripting skills like a pro:
 
+^ Parameter                     ^ Explanation                     ^
+| ${parameter:-defaultValue}	| Get default shell variables value |
+| ${parameter:=defaultValue}	| Set default shell variables value |
+| ${parameter:?”Error Message”}	| Display an error message if parameter is not set |
+| ${#var}	        | Find the length of the string |
+| ${var%pattern}	        | Remove from shortest rear (end) pattern |
+| ${var%%pattern}	| Remove from longest rear (end) pattern |
+| ${var:num1:num2}	| Substring |
+| ${var#pattern}	        | Remove from shortest front pattern |
+| ${var##pattern}	| Remove from longest front pattern |
+| ${var/pattern/string}	| Find and replace (only replace first occurrence) |
 
-|${parameter:-defaultValue}	|Get default shell variables value|
-|${parameter:=defaultValue}	|Set default shell variables value|
-|${parameter:?”Error Message”}	|Display an error message if parameter is not set|
-|${#var}	|Find the length of the string|
-|${var%pattern}	|Remove from shortest rear (end) pattern|
-|${var%%pattern}	|Remove from longest rear (end) pattern|
-|${var:num1:num2}	|Substring|
-|${var#pattern}	|Remove from shortest front pattern|
-|${var##pattern}	|Remove from longest front pattern|
-|${var/pattern/string}	|Find and replace (only replace first occurrence)|
-|${var//pattern/string}	|Find and replace all occurrences|
-
-===More Guides===
+====Few More Guides====
 [[linux:comparison|Bash Comparisons]]
 
 [[linux:bash|BASH]]
 
 [[linux:bash_tips|BASH Tips]]
-
-
-==== Guides ====
-
-http://mywiki.wooledge.org/FullBashGuide
-
-Another good one. Good examples
-
-http://wiki.bash-hackers.org/start
-
-http://ryanstutorials.net/bash-scripting-tutorial/bash-if-statements.php
