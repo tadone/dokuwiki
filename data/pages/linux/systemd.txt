@@ -75,3 +75,14 @@ Documentation=https://wiki.corp.example.org/SomeClient/CommonFailures \
 
 The content of the “Documentation=” directive is visible when running “systemctl status servicename”. This helps your on-call person, when the alarm goes off, to figure out what is wrong, and how to fix it. 
 Add your own service documentation, and a link to the upstream documentation.
+
+====== Journalctl ======
+
+<sxh bash>
+journalctl -b                           # To see boot-related messages from the current boot
+journalctl --since "1 hour ago"         # Messages logged within the last hour
+journalctl --since "2015-06-26 23:15:00" --until "2015-06-26 23:20:00" # More precise
+journalctl -fu nginx.service            # Follow by unit
+journalctl -n 50 --since "1 hour ago"   # Last 50 entries since an hour ago
+journalctl --tail 50 -u nginx.service   # Last 50 entires for unit nginx
+</sxh>
