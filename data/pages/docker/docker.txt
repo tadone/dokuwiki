@@ -4,6 +4,8 @@ Build the image and push and push it to registry:
 # docker build -t Registry/Image:tag .
 docker build -f Dockerfile_tests -t docker.mot-solutions.com/msi/sessionmanager-pytests .
 docker push docker.mot-solutions.com/msi/sessionmanager-pytests
+# Use multiple tags
+docker build -t whenry/fedora-jboss:latest -t whenry/fedora-jboss:v2.1 .
 </sxh>
 Make changes in a container, commit those changes in the image and push to registry:
 <sxh>
