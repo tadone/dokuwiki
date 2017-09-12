@@ -126,6 +126,11 @@ View the file from another branch:
 To delete the local branch use:
 <sxh>git branch -d <branch_name></sxh>
 The -d option is an alias for --delete, which only deletes the branch if it has already been fully merged in its upstream branch. You could also use -D, which is an alias for --delete --force, which deletes the branch "irrespective of its merged status."
+
+**To find local branches that were merged to upstream:**
+<sxh bash>
+git branch -r | awk '{print $1}' | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '{print $1}' | xargs git branch -d
+</sxh>
 <sxh>git push origin --delete <branch_name></sxh>
 Then you should execute this on other machines
 <sxh>git fetch --all --prune</sxh>
