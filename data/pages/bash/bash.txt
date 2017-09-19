@@ -26,6 +26,10 @@ Exit immediately if a pipeline returns non-zero.
 
 Return value of a pipeline is the value of the last (rightmost) command to exit with a non-zero status, or zero if all commands in the pipeline exit successfully.
 
+=== Redirect Output/Errors ===
+''2>/dev/null'' Redirect only errors to dev/null
+
+''&> /dev/null'' Redirect all output to dev/null (Abbreviation from ''2>&1'' avail in BASH 4)
 
 ====IF Statements (Test)====
 
