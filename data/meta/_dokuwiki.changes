@@ -18,3 +18,6 @@
 1498489721	140.101.31.246	e	linux:systemd	tadone			509
 1503052156	140.101.116.1	E	docker:docker	tadone	[Essential Commands] 		93
 1505219142	140.101.31.250	E	other:git	tadone	[Git Delete] 		206
+1505845097	89.64.22.135	e	bash:bash	tadone	[IF Statements (Test)] 		239
+1505845801	89.64.22.135	E	bash:bash	tadone	[Basics] 		634
+1505845860	89.64.22.135	E	bash:bash	tadone	[Basics] 		48

@@ -6,6 +6,27 @@
 
 [[http://ryanstutorials.net/bash-scripting-tutorial/bash-if-statements.php]]
 
+==== Basics ====
+https://github.com/alphabetum/bash-boilerplate
+
+Use ''export VAR_NAME=Variable'' so that the variable name is available to any process you run from that shell process. If you want a process to make use of this variable, use export, and run the process from that shell.
+
+=== Set Option ===
+To set option use ''set -o <option>'' Few of the available options:
+
+**set -o nounset** or **set -u**
+
+Treat unset variables and parameters other than the special parameters @ or * as an error when performing parameter expansion. An 'unbound variable' error message will be written to the standard error, and a non-interactive shell will exit.
+
+**set -o errexit** or **set -e**
+
+Exit immediately if a pipeline returns non-zero.
+
+**set -o pipefail**
+
+Return value of a pipeline is the value of the last (rightmost) command to exit with a non-zero status, or zero if all commands in the pipeline exit successfully.
+
+
 ====IF Statements (Test)====
 
 The square brackets **[ ]** in the if statement are actually a reference to the command ''test''. This means that all of the operators that test allows may be used here as well. Look up the man page for test to see all of the possible operators (there are quite a few) but some of the more common ones are listed below.
@@ -47,7 +68,7 @@ fi
 **Empty String Variable**
 <sxh bash>
 if  [ -z "$VAR1" ];  # This will return true if a variable is unset or set to the empty string ("")
-if  [ -z "$VAR1" ];  # the inverse of -z
+if  [ -n "$VAR1" ];  # the inverse of -z
 if  [ ! -d "$DIR" ]; # Test if directory $DIR (does not !) exist(s)
 </sxh>
   
