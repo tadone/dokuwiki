@@ -5,6 +5,13 @@ grep file | awk '{ print $2 }' # Print second position
 grep file | awk -F ":" '{ print $2 }' # Use : as a delimiter
 </sxh>
 
+===cURL===
+
+Download site/file (without saving) and grep its content:
+<sxh bash>curl --silent https://google.com/ 2>&1 | grep <something></sxh>
+Uppercase -O saves based on filename (will save as gettext.html):
+<sxh bash>curl -O http://www.gnu.org/software/gettext/manual/gettext.html</sxh>
+<sxh bash>curl -u username:password URL # 
 === Find ===
 Find regular file (f) in current directory (.) and print to STDOUT on same line (no new line)
 <sxh bash>find . -type f -print0</sxh>
