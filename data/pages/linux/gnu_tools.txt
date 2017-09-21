@@ -1,17 +1,23 @@
-==== Find ====
+===AWK===
+Print only 2 position with default delimiter
+<sxh bash> 
+grep file | awk '{ print $2 }' # Print second position
+grep file | awk -F ":" '{ print $2 }' # Use : as a delimiter
+</sxh>
+
+=== Find ===
 Find regular file (f) in current directory (.) and print to STDOUT on same line (no new line)
-<code bash>find . -type f -print0</code>
-<code>
--print0
-       True;  print  the  full file name on the standard output, followed by a null character (instead of
-       the newline character that -print uses).  This allows file names that contain  newlines  or  other
-       types  of  white space to be correctly interpreted by programs that process the find output.  This
-       option corresponds to the -0 option of xargs.
-</code>
+<sxh bash>find . -type f -print0</sxh>
+
+''-print0''
+
+Print  the  full file name on the standard output, followed by a null character (instead of the newline character that -print uses).  This allows file names that contain  newlines  or  other types  of  white space to be correctly interpreted by programs that process the find output. This option corresponds to the -0 option of xargs.
+       
 [[linux:find|Advanced Find]] - Advanced usage of ''find'' command
-==== Tar - Tape Archive====
+
+=== Tar - Tape Archive===
 Examples:
-<code bash>
+<sxh bash>
   tar -cf archive.tar foo bar  # Create archive.tar from files foo and bar.
   tar -czvf archive.tar.gz     # Create Gzipped archive.tar
   tar -tvf archive.tar         # List all files in archive.tar verbosely.
@@ -19,10 +25,10 @@ Examples:
   tar -czvf files.tar.gz -C /vaw/www/html . # Change to /var/www/html directory and tar all files (using . "dot") 
   tar -czvf site1.tar.gz -C /var/www/ site1 
   # Note the space, I'm still using the -C, to cd to the parent dir, and specifying the dir to tar instead of dot 
-</code>
-==== Rsync - a fast, versatile, remote (and local) file-copying tool====
-<code>rsync --archive --delete /path/to/source /path/to/destination
-
+</sxh>
+=== Rsync - a fast, versatile, remote (and local) file-copying tool===
+<sxh bash>rsync --archive --delete /path/to/source /path/to/destination</sxh>
+<sxh bash>
 -a, --archive
        This is equivalent to -rlptgoD. It is a quick way  of  saying  you  want  recursion  and  want  to
        preserve  almost  everything  (with -H being a notable omission).  The only exception to the above
@@ -30,35 +36,35 @@ Examples:
 
        Note that -a does not preserve hardlinks, because finding multiply-linked files is expensive.  You
        must separately specify -H.
-</code>
+</sxh>
 
-====Edit file with SED==== 
+===SED=== 
 [[linux:sed|Sed]]
 is stream editor, but can edit files directly too, with the following:
 
-<code>sed -i -e 's|foo|bar|g' filename</code>
+<sxh bash>sed -i -e 's|foo|bar|g' filename</sxh>
 
-**s** is used to replace the found expression "foo" with "bar"
+''s'' is used to replace the found expression "foo" with "bar"
 
-**g** stands for "global", meaning to do this for the whole line. If you leave off the g and "foo" appears twice on the same line, only the first "foo" is changed to "bar".
+''g'' stands for "global", meaning to do this for the whole line. If you leave off the g and "foo" appears twice on the same line, only the first "foo" is changed to "bar".
 
-**-i** option is used to edit in place on filename.
+''-i'' option is used to edit in place on filename.
 
-**-e** option indicates a command to run.
+''-e'' option indicates a command to run.
 
-==== Nmap ====
+=== Nmap ===
 [[linux:nmap|Nmap]]
-==== xargs ====
+=== xargs ===
 ''xargs'' is a command used to execute commands based on arguments from standard input.
 xargs used in combination with find in order to do something with the list of files returned by find.
 Recursively find all Python files and count the number of lines
-<code>find . -name '*.py' | xargs wc -l</code>
+<sxh bash>find . -name '*.py' | xargs wc -l</sxh>
 
 Recursively find all Emacs backup files and remove them
-<code>find . -name '*~' | xargs rm</code>
+<sxh bash>find . -name '*~' | xargs rm</sxh>
 
 Recursively find all Python files and search them for the word ‘import’
-<code>find . -name '*.py' | xargs grep 'import'</code>
+<sxh>find . -name '*.py' | xargs grep 'import'</sxh>
 
 ===Handling files or folders with spaces in the name===
 One problem with the above examples is that it does not correctly handle files or directories with a space in the name. This is because xargs by default will split on any white-space character. 
@@ -75,6 +81,6 @@ Sometimes however you might want to insert the arguments into the middle of a co
 A common choice is {}.
 
 Move all backup files somewhere else
-<code>find . -name '*~' -print 0 | xargs -0 -I {} cp {} ~/backups</code>
+<sxh bash>find . -name '*~' -print 0 | xargs -0 -I {} cp {} ~/backups</sxh>
 
 [[linux:xargs|Advanced XARGS Usage]]
