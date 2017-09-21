@@ -9,9 +9,20 @@ grep file | awk -F ":" '{ print $2 }' # Use : as a delimiter
 
 Download site/file (without saving) and grep its content:
 <sxh bash>curl --silent https://google.com/ 2>&1 | grep <something></sxh>
-Uppercase -O saves based on filename (will save as gettext.html):
-<sxh bash>curl -O http://www.gnu.org/software/gettext/manual/gettext.html</sxh>
-<sxh bash>curl -u username:password URL # 
+Save file with ''cURL''
+<sxh bash>
+curl -o target/path/filename URL # Save as custom filename (lowercase -o)
+curl -O http://www.gnu.org/software/gettext/manual/gettext.html # Uppercase -O</sxh>
+<sxh bash>
+curl -u username:password URL # HTTP Authentication
+curl -v # Verbose
+# Get HTTP Response code
+curl -o /dev/null --silent --head --write-out '%{http_code}' URL.com -u username:password
+</sxh>
+<sxh bash>
+# POST JSON data with cURL (-H is short for --header, -d for --data)
+curl -X POST -H "Content-Type: application/json" -d '{"username":"xyz","password":"xyz"}' http://localhost:3000/api/login
+</sxh>
 === Find ===
 Find regular file (f) in current directory (.) and print to STDOUT on same line (no new line)
 <sxh bash>find . -type f -print0</sxh>

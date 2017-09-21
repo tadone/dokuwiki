@@ -134,3 +134,14 @@ git branch -r | awk '{print $1}' | egrep -v -f /dev/fd/0 <(git branch -vv | grep
 <sxh>git push origin --delete <branch_name></sxh>
 Then you should execute this on other machines
 <sxh>git fetch --all --prune</sxh>
+
+====REBASE====
+''Dangerous''
+To squash commits on a branch (that no one pulled from) do a rebase:
+<sxh bash>
+git checkout -b <some_branch>
+# do some work with many commits
+git rebase -i develop # Interactive rebase, which will allow squashing commits
+git commit -am "Big commit message"
+git push origin <some_branch> -f # Force push to that branch
+</sxh>
