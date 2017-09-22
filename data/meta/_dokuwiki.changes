@@ -1,10 +1,3 @@
-1496403298	140.101.31.246	E	sidebar	tadone			-2
-1496403489	140.101.31.246	E	linux:network	tadone			158
-1496403700	140.101.31.246	e	linux:network	tadone			58
-1496915773	140.101.31.246	E	linux:administration	tadone			133
-1496933810	150.130.102.84	e	docker:docker	tadone			3
-1497548335	89.64.11.131	e	bash:bash	tadone			843
-1497878840	140.101.31.246	E	bash:bash	tadone			1224
 1497879361	140.101.31.246	e	bash:bash	tadone			-27
 1497879690	140.101.31.246	e	bash:bash	tadone			19
 1497880618	140.101.31.246	e	bash:bash	tadone			111
@@ -18,7 +11,6 @@
 1505845860	89.64.22.135	E	bash:bash	tadone	[Basics] 		48
 1505849304	89.64.22.135	E	bash:bash	tadone	[Basics] 		79
 1505850039	89.64.22.135	E	bash:bash	tadone	[Basics] 		96
-1489410114	127.0.0.1	E	linux:gnu_tools		external edit		4152
 1505978958	150.130.96.129	e	linux:gnu_tools	tadone			192
 1505979235	150.130.96.129	e	linux:gnu_tools	tadone			-39
 1505987678	150.130.96.129	e	linux:gnu_tools	tadone			333
