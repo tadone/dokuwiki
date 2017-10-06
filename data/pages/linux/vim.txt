@@ -3,6 +3,7 @@
 |**:set paste**|Then enter insert mode. You will see the status bar say insert (paste). Paste your code |
 |**:set nopaste**| Exit out of PASTE mode|
 |**:nohl**| Remove search highlighting|
+|**:%s/foo/bar/g**| Find each occurrence of 'foo' (in all lines), and replace it with 'bar'|
 
 ===Troubleshooting===
 If the plugins are not installing the minimal version is installed
