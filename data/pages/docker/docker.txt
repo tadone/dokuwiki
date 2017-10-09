@@ -33,13 +33,14 @@ docker save -o /tmp/<name>.tar <img_ID> # Save image to a file (tar)
 docker load -i /tmp/<name>.tar          # Import image
 </sxh>
 
-^Command ^What it does |
-|-d| Detached, in the background|
-|-it| Interactive with pseudo terminal|
-|-p| Specify port(s) Ex. ''-p 80:3000'' maps port 80 of host to 3000 in a container|
-|-P| Random docker host port assignment with ports from Dockerfile|
-|--name| Name for the container|
-|-v| Volume|
+^Command ^Example ^What it does |
+|-d| |Detached, in the background|
+|-it||Interactive with pseudo terminal|
+|-p| **-p 80:3000** |Specify port(s). Here -p maps port 80 of host to 3000 in a container|
+|-P| |Random docker host port assignment with ports from Dockerfile|
+|--name|**docker run --name 'my_container'**|Name for the container|
+|-v| |Maps Host Volume to container directory|
+|-e|''-e CONFIG='config.json' ''|Env Variable|
 
 ====Container Management====
 ''Ctr+P+Q'' - Get back to terminal of docker host without terminating container
