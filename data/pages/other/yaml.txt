@@ -1,0 +1,22 @@
+===== Break a string over multiple lines =====
+**Block scalar styles (>, |)**
+
+These allow escaping, and add a new line (\n) to the end of your string.
+
+''>'' Folded style removes the newlines within the string (but adds one at the end):
+<code>
+Key: >
+  this is my very very very
+  long string
+</code>
+→ this is my very very very long string''\n''
+
+''|'' Literal style turns newlines within the string into literal newlines, and adds one at the end:
+<code>
+Key: |
+  this is my very very very 
+  long string
+</code>
+→ this is my very very very''\n''long string''\n''
+
+  
