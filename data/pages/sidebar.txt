@@ -27,6 +27,7 @@
   * [[osx:osx|OSX]]
     * [[osx:dotfiles|Dotfiles]]
   * [[wiki:dokuwiki_install|Dokuwiki Install]]
+  * [[other:yaml|YAML]]
   * [[wiki:syntax|Syntax]]
 
 ~~NOCACHE~~

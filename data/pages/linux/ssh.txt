@@ -3,7 +3,7 @@
 
 ===== SSH Config File =====
 === Edit ~/.ssh/config ===
-<code bash>
+<sxh bash>
 ### default for all ##
 Host *
      ForwardAgent no
@@ -27,7 +27,7 @@ Host nas01
      HostName 192.168.1.100
      User root
      IdentityFile ~/.ssh/nas01.key
-</code>
+</sxh>
 
 ====== SCP - Copy files with SSH ======
 

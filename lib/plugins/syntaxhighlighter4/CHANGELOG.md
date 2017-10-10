@@ -1,5 +1,19 @@
 # Changelog
 
+## 2017/07/26
+
+* Remove unnecessary vertical scrollbar (Issue #14)
+
+## 2017/07/19
+
+* Add option to override `<code>` DokuWiki syntax (Issue #4)
+
+## 2016/11/28
+
+* Add StyleCI config
+* Fix short syntax for arrays (Issue #8)
+* Fix method signatures for PHP 7.0 (Issue #6)
+
 ## 2016/10/24
 
 * Required DokuWiki >= Elenor of Tsort ([dokuwiki issue](https://github.com/splitbrain/dokuwiki/pull/1549))

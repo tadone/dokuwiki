@@ -41,7 +41,8 @@ docker load -i /tmp/<name>.tar          # Import image
 |--name|**docker run --name 'my_container'**|Name for the container|
 |-v| |Maps Host Volume to container directory|
 |-e|''-e CONFIG='config.json' ''|Env Variable|
-
+|ctrl+p ctrl+q| **ctrl+p ctrl+q**|Detach from container without stopping it|
+|--restart=unless-stopped|''docker run ... --restart=unless-stopped''|Restart container unless manually stopped|
 ====Container Management====
 ''Ctr+P+Q'' - Get back to terminal of docker host without terminating container
 
