@@ -124,3 +124,39 @@ Use the ''--link='' option to link a container to another:
 <sxh bash>docker run -d --link=<source_container>:<alias> <base_img> # Alias can be same as source container</sxh>
 
 The linked container will have network information from the source saved as ENV variables.
+
+=====Tips & Tricks=====
+<sxh bash>
+docker ps --format "table {{.Names}}\t{{.Image}}\t{{.Ports}}"
+</sxh>
+Add shortcut to access logs for container
+Add below snippet to your ~/.bashrc on CoreOS:
+<sxh bash>
+logs() {
+        docker ps | grep -i $1 | awk '{print $1}' | xargs docker logs -f
+}
+</sxh>
+Every new session (or current one after issuing source ~/.bashrc) you will can run:
+<sxh>
+logs affil
+logs pushno
+logs rega
+</sxh>
+Add shortcut to log in to container
+Add below snippet to your ~/.bashrc on CoreOS:
+<sxh bash>
+shell() {
+        docker exec -it `docker ps | grep -i $1 | awk '{print $1}'` bash
+}
+</sxh>
+Every new session (or current one after issuing source ~/.bashrc) you will can run:
+<sxh>
+shell affil  
+shell pushno  
+shell rega  
+</sxh>
+**clear unused docker images**
+<sxh bash>
+docker rm -f $(docker ps --filter "status=dead" -q)
+docker rmi $(docker images -f "dangling=true" -q)
+</sxh>
