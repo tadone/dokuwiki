@@ -59,16 +59,29 @@ To use them, enable the ''extglob'' shell option as follows:
 <code bash># shopt -s extglob</code>
 === 1. To delete all files in a directory except filename, type the command below: ===
 <code bash>$ rm -v !("filename")</code>
-{{http://www.tecmint.com/wp-content/uploads/2016/10/DeleteAll-Files-Except-One-File-in-Linux.png}}
 === 2. To delete all files with the exception of filename1 and filename2: ===
-<code bash>$ rm -v !("filename1"|"filename2")</code> 
-{{http://www.tecmint.com/wp-content/uploads/2016/10/Delete-All-Files-Except-Few-Files-in-Linux.png}}
+<code bash>$ rm -v !("filename1"|"filename2")</code>
 3. The example below shows how to remove all files other than all .zip files interactively:
 <code bash>$ rm -i !(*.zip)</code>
-{{http://www.tecmint.com/wp-content/uploads/2016/10/Delete-All-Files-Except-Zip-Files-in-Linux.png}}
 4. Next, you can delete all files in a directory apart from all .zip and .odt files as follows, while displaying what is being done:
 <code bash>$ rm -v !(*.zip|*.odt)</code>
-{{http://www.tecmint.com/wp-content/uploads/2016/10/Delete-All-Files-Except-Certain-File-Extensions.png}}
 
 Once you have all the required commands, turn off the extglob shell option like so:
 <code bash>$ shopt -u extglob</code>
+====ANSI Colors====
+The ANSI escape sequences: ''\033[XXXm'' where ''XXX'' is a series of semicolon-separated parameters.
+
+To say, make text red, bold, and underlined:
+<sxh python>
+# Python
+print("\033[31;1;4mHello\033[0m")
+</sxh>
+<sxh bash>
+# BASH
+echo -e "\033[31;1;4mHello\033[0m"</sxh>
+
+where the first part makes the text red (**31**), bold (**1**), underlined (**4**) and the last part clears all this (0).
+
+**The table below lists the RGB values of the background and foreground colours used for these by a variety of terminal emulators:**
+
+{{https://i.stack.imgur.com/7H7H9.png}}
