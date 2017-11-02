@@ -18,3 +18,5 @@
 1508847742	140.101.31.246	e	docker:docker	tadone	[Essential Commands] 		449
 1508847958	140.101.31.246	e	docker:docker	tadone	[SELinux] 		438
 1509352825	140.101.31.249	e	linux:command_line	tadone			180
+1489410114	127.0.0.1	E	ansible:ansible		external edit		0
+1509613909	140.101.31.249	e	ansible:ansible	tadone			356

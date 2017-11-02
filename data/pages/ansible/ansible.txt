@@ -62,3 +62,12 @@ Gather facts (info) about remote host:
 <sxh bash>ansible hostname.example.com -m setup</sxh>
 
 ====Roles====
+====Ansible Vault====
+Encrypt a file:
+<sxh>ansible-vault encrypt encrypt_me.txt</sxh>
+Viewing Encrypted Files (prompted for password):
+<sxh>ansible-vault view vault.yml</sxh>
+View encrypted file using password file:
+<sxh>ansible-vault view vault_master.yml --vault-password-file vault.pass</sxh>
+Edit encrypted file:
+<sxh>ansible-vault edit vault.yml</sxh>
