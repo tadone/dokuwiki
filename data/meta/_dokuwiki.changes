@@ -1,4 +1,3 @@
-1505979235	150.130.96.129	e	linux:gnu_tools	tadone			-39
 1505987678	150.130.96.129	e	linux:gnu_tools	tadone			333
 1505990733	150.130.96.129	e	linux:gnu_tools	tadone			160
 1505990916	150.130.96.129	e	linux:gnu_tools	tadone			48
@@ -18,5 +17,4 @@
 1508847742	140.101.31.246	e	docker:docker	tadone	[Essential Commands] 		449
 1508847958	140.101.31.246	e	docker:docker	tadone	[SELinux] 		438
 1509352825	140.101.31.249	e	linux:command_line	tadone			180
-1489410114	127.0.0.1	E	ansible:ansible		external edit		0
 1509613909	140.101.31.249	e	ansible:ansible	tadone			356
