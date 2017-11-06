@@ -18,3 +18,6 @@
 1508847958	140.101.31.246	e	docker:docker	tadone	[SELinux] 		438
 1509352825	140.101.31.249	e	linux:command_line	tadone			180
 1509613909	140.101.31.249	e	ansible:ansible	tadone			356
+1509716940	127.0.0.1	E	start		external edit		0
+1509955841	140.101.31.249	e	start	tadone	ToDo unchecked: Finish backing up DokuWiki		-19
+1509955842	140.101.31.249	e	start	tadone	ToDo checked: Finish backing up DokuWiki		19
