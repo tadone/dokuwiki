@@ -1,0 +1,18 @@
+### AWS Credentials
+<sxh bash>aws configure</sxh>
+### EC2
+#### Create Key-Pair
+<sxh bash>aws ec2 create-key-pair --key-name tadone-ec2 --query 'KeyMaterial' --output text > tadone-ec2.pem</sxh>
+#### Describe Instances with Query
+<sxh bash>
+aws ec2 describe-instances --query 'Reservations[*].Instances[*].[Placement.AvailabilityZone, State.Name, InstanceId]' --output text
+</sxh>
+#### Modify instances based on query
+<sxh bash>
+$ aws ec2 describe-instances --query 'Reservations[*].Instances[*].[State.Name, InstanceId]' --output text |
+> grep stopped |
+> awk '{print $2}' |
+> while read line;
+> do aws ec2 modify-instance-attribute --instance-id $line --instance-type '{"Value": "m1.medium"}';
+> done
+</sxh>

@@ -1,6 +1,3 @@
-1505987678	150.130.96.129	e	linux:gnu_tools	tadone			333
-1505990733	150.130.96.129	e	linux:gnu_tools	tadone			160
-1505990916	150.130.96.129	e	linux:gnu_tools	tadone			48
 1505991438	150.130.96.129	e	other:git	tadone			356
 1505991671	150.130.96.129	e	linux:gnu_tools	tadone			209
 1507228981	89.64.22.236	e	start	tadone	ToDo checked: MacOS setup script		19
@@ -21,3 +18,7 @@
 1509716940	127.0.0.1	E	start		external edit		0
 1509955841	140.101.31.249	e	start	tadone	ToDo unchecked: Finish backing up DokuWiki		-19
 1509955842	140.101.31.249	e	start	tadone	ToDo checked: Finish backing up DokuWiki		19
+1509716940	127.0.0.1	E	sidebar		external edit		0
+1509973545	140.101.31.249	e	sidebar	tadone			-10
+1509973721	140.101.31.249	C	aws:aws	tadone	created		194
+1509976159	140.101.31.249	e	aws:aws	tadone	[EC2] 		514

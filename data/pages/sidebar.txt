@@ -17,7 +17,7 @@
     * [[linux:systemd|SystemD]]
   * [[bash:bash|BASH Scripting]]
   * [[docker:docker|Docker]]
-  * [[other:jenkins|Jenkins]]
+  * [[aws:aws|AWS]]
   * [[ansible:ansible|Ansible]]
   * [[other:git|GIT]]
   * [[other:cheatsheet|Cheat Sheets]]
