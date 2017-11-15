@@ -20,9 +20,15 @@ max_execution_time = 600
 #### Nginx Proxy up the uploads limit
 Create proxy_upload.conf file and map it to /etc/nginx/conf.d/proxy_upload.conf inside a container.
 ```
-client_max_body_size 10M;
+client_max_body_size 30M;
 ```
 #### Backup MariaDB/MySQL Database running inside a container
 <sxh bash>
-docker exec some-mariadb sh -c 'exec mysqldump --all-databases -uroot -p"$MYSQL_ROOT_PASSWORD"' > /some/path/on/your/host/all-databases.sql
+docker exec some-mariadb sh -c 'exec mysqldump --all-databases -uroot -p"$MYSQL_ROOT_PASSWORD"' \
+> /some/path/on/your/host/all-databases.sql
 </sxh>
+
+#### DNS (NameCheap.com)
+Add A records for proxied containers.
+
+{{:other:advanced_dns.png?direct&800|}}
