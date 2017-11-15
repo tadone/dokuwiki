@@ -25,8 +25,8 @@
     * [[windows:powershell|Powershell]]
     * [[windows:administration|Administration]]
   * [[osx:osx|OSX]]
-    * [[osx:dotfiles|Dotfiles]]
   * [[wiki:dokuwiki_install|Dokuwiki Install]]
+  * [[other:webserver|Web Server]]
   * [[other:yaml|YAML]]
   * [[wiki:syntax|Syntax]]
 

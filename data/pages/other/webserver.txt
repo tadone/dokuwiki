@@ -1,0 +1,28 @@
+### Web server on AWS
+Provision EC2 instance with Ansible (Terraform).
+1 VPC - CoreOS
+
+Download docker compose
+Run ''docker-compose up -d'' inside directory where docker-compose.yml exists.
+
+When making changes to docker-compose.yml run ''docker-compose up -d --no-recreate'' to avoid recreating existing containers.
+
+Use .env to hide any sensitive info for docker-compose.yml.
+#### Wordpress up the uploads limit
+Ensure you have ''wordpress/uploads.ini'' before creating mount point with docker.
+```
+file_uploads = On
+memory_limit = 500M
+upload_max_filesize = 30M
+post_max_size = 30M
+max_execution_time = 600
+```
+#### Nginx Proxy up the uploads limit
+Create proxy_upload.conf file and map it to /etc/nginx/conf.d/proxy_upload.conf inside a container.
+```
+client_max_body_size 10M;
+```
+#### Backup MariaDB/MySQL Database running inside a container
+<sxh bash>
+docker exec some-mariadb sh -c 'exec mysqldump --all-databases -uroot -p"$MYSQL_ROOT_PASSWORD"' > /some/path/on/your/host/all-databases.sql
+</sxh>
