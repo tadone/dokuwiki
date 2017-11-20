@@ -1,3 +1,13 @@
+### AWS CLI ###
+Requirements:
+
+  * Python 2 version 2.6.5+ or Python 3 version 3.3+
+
+
+<sxh bash>
+pip install awscli --upgrade --user
+</sxh>
+
 ### AWS Credentials
 <sxh bash>aws configure</sxh>
 ### EC2
