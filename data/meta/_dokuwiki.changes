@@ -1,5 +1,3 @@
-1507650158	89.64.22.236	e	linux:ssh	tadone	[SSH Config File] 		-2
-1507650328	89.64.22.236	e	sidebar	tadone			24
 1507650855	89.64.22.236	C	other:yaml	tadone	created		573
 1508323611	140.101.31.246	e	docker:docker	tadone			902
 1508847742	140.101.31.246	e	docker:docker	tadone	[Essential Commands] 		449
@@ -20,3 +18,5 @@
 1510740346	89.64.15.20	E	other:webserver	tadone			106
 1511180222	140.101.31.249	e	aws:aws	tadone			141
 1511188359	140.101.31.249	e	aws:aws	tadone			-45
+1511535091	89.64.15.20	e	sidebar	tadone			29
+1511535543	89.64.15.20	C	devops:devops	tadone	created		390

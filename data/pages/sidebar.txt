@@ -28,6 +28,7 @@
   * [[wiki:dokuwiki_install|Dokuwiki Install]]
   * [[other:webserver|Web Server]]
   * [[other:yaml|YAML]]
+  * [[devops:devops|DevOps]]
   * [[wiki:syntax|Syntax]]
 
 ~~NOCACHE~~
