@@ -1,3 +1,19 @@
+### Menu ###
+  * [[linux:gnu_tools|GNU Tools]]
+  * [[linux:extra_tools|Extra Tools]]
+  * [[linux:administration|Administration]]
+  * [[linux:command_line|Command Line]]
+  * [[linux:shell|Shell]]
+  * [[linux:basics|Basics]]
+  * [[linux:users|Users]]
+  * [[linux:ssh|SSH]]
+  * [[linux:network|Network]]
+  * [[linux:dotfiles|Dotfiles]]
+  * [[linux:mail|Mail]]
+  * [[linux:security|Secuirty]]
+  * [[linux:vim|VIM]]
+  * [[linux:systemd|SystemD]]
+
 ==== New Linux Server Checklist ====
 1. Copy SSH keys to server\\
 <sxh>ssh-copy-id -i ~/.ssh/id_rsa.pub remote-host</sxh>

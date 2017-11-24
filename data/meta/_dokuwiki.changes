@@ -20,3 +20,8 @@
 1511188359	140.101.31.249	e	aws:aws	tadone			-45
 1511535091	89.64.15.20	e	sidebar	tadone			29
 1511535543	89.64.15.20	C	devops:devops	tadone	created		390
+1509716940	127.0.0.1	E	linux:linux		external edit		0
+1511537613	89.64.15.20	e	linux:linux	tadone			442
+1511537674	89.64.15.20	e	sidebar	tadone			-456
+1511537759	89.64.15.20	e	sidebar	tadone			29
+1511538451	89.64.15.20	C	python:python	tadone	created		1212
