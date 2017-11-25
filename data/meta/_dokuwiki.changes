@@ -1,9 +1,3 @@
-1507650855	89.64.22.236	C	other:yaml	tadone	created		573
-1508323611	140.101.31.246	e	docker:docker	tadone			902
-1508847742	140.101.31.246	e	docker:docker	tadone	[Essential Commands] 		449
-1508847958	140.101.31.246	e	docker:docker	tadone	[SELinux] 		438
-1509352825	140.101.31.249	e	linux:command_line	tadone			180
-1509613909	140.101.31.249	e	ansible:ansible	tadone			356
 1509716940	127.0.0.1	E	start		external edit		0
 1509716940	127.0.0.1	E	sidebar		external edit		0
 1509955841	140.101.31.249	e	start	tadone	ToDo unchecked: Finish backing up DokuWiki		-19
@@ -20,7 +14,6 @@
 1511188359	140.101.31.249	e	aws:aws	tadone			-45
 1511535091	89.64.15.20	e	sidebar	tadone			29
 1511535543	89.64.15.20	C	devops:devops	tadone	created		390
-1509716940	127.0.0.1	E	linux:linux		external edit		0
 1511537613	89.64.15.20	e	linux:linux	tadone			442
 1511537674	89.64.15.20	e	sidebar	tadone			-456
 1511537759	89.64.15.20	e	sidebar	tadone			29
