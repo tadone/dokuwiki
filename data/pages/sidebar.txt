@@ -12,7 +12,7 @@
     * [[windows:administration|Administration]]
   * [[osx:osx|OSX]]
   * [[wiki:dokuwiki_install|Dokuwiki Install]]
-  * [[other:webserver|Web Server]]
+  * [[other:webserver|Provisioning]]
   * [[other:yaml|YAML]]
   * [[devops:devops|DevOps]]
   * [[python:python|Python]]
